@@ -6,7 +6,5 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Button Content="CLICK!!!" FontSize="20"/>
 </Window>
