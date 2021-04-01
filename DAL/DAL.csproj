@@ -53,16 +53,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityFramework\Initializer.cs" />
     <Compile Include="EntityFramework\TestDb.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Migrations\202103251849595_Start_AddUserEntity.cs" />
     <Compile Include="Migrations\202103251849595_Start_AddUserEntity.designer.cs">
       <DependentUpon>202103251849595_Start_AddUserEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
