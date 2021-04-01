@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Main window" Height="650" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow"
+        AllowsTransparency="False" Background="Transparent" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Border CornerRadius="10" Background="#3d6cb9">
+            <Rectangle Height="550" VerticalAlignment="Top" Margin="10">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#3d6cb9"></GradientStop>
+                        <GradientStop Color="#00fff0" Offset="1"></GradientStop>
+                        <GradientStop Color="#00d1ff" Offset="0.5"></GradientStop>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <Image Source="/Picture/unnamed.png" Width="100" Height="100" VerticalAlignment="Top" Margin="0,10,0,0"/>
+        <Rectangle Width="750" Height="450" Fill="White">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#184d47" Direction="0" BlurRadius="10" RenderingBias="Quality"></DropShadowEffect>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid Width="750" Height="450">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button  Width="220" Height="40" Content="Create new test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="0"></Button>
+            <Button  Width="220" Height="40" Content="Start test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="1"></Button>
+            <Button  Width="220" Height="40" Content="Check test result" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>
+            <Button  Width="220" Height="40" Content="Change your tests" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="3"></Button>
+            <Button  Width="220" Height="40" Content="Account" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="5"></Button>
+
+            <ComboBox Grid.Row="4" Grid.Column="0" Margin="10" materialDesign:HintAssist.Hint="Choose your test" x:Name="tests_name"></ComboBox>
+            
+            <ListBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="6" Margin="20" >
+                <DockPanel LastChildFill="False" Margin="5">
+                    <Label Margin="5" FontSize="16">Test name</Label>
+                    <Label Margin="5" FontSize="16">Test state</Label>
+                    <Label Margin="5" FontSize="16">Test author</Label>
+                    <Label Margin="5" FontSize="16">Test mark</Label>
+                </DockPanel>
+            </ListBox>
+        </Grid>
+
+
+
+        <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="20" VerticalAlignment="Bottom"></TextBlock>
+
     </Grid>
 </Window>
