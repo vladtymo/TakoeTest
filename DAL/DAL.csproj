@@ -53,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Question.cs" />
+    <Compile Include="Entities\Test.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityFramework\Initializer.cs" />
     <Compile Include="EntityFramework\TestDb.cs" />
