@@ -1,0 +1,75 @@
+﻿<Window x:Class="Client.LogInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        d:DataContext="{d:DesignInstance Type=local:LogInViewModel}"
+        mc:Ignorable="d"
+        Title="Login" Height="470" Width="500"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#00d1ff"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border CornerRadius="10" Background="#3d6cb9">
+            <Rectangle Height="300" VerticalAlignment="Top" Margin="10">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#3d6cb9"></GradientStop>
+                        <GradientStop Color="#00fff0" Offset="1"></GradientStop>
+                        <GradientStop Color="#00d1ff" Offset="0.5"></GradientStop>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Width="150" Height="150" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <Rectangle Width="400" Height="200" Fill="White">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#184d47" Direction="0" BlurRadius="10" RenderingBias="Quality"></DropShadowEffect>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid Width="500" Height="300">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
+                <materialDesign:PackIcon Kind="AccountGroup" Width="30" Height="30" VerticalAlignment ="Center" Foreground="#3d6cb9" Margin="85,40,0,0"></materialDesign:PackIcon>
+                <TextBox x:Name="tbName" Text="{Binding NickName, Mode=TwoWay}" materialDesign:HintAssist.Hint="Enter your Nickname" Margin="0,40,60,0" Width="250" Height="40" FontSize="16"
+                         Padding="10" Foreground="#3d6cb9"></TextBox>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+                <materialDesign:PackIcon Kind="Lock" Width="30" Height="30" Margin="85,15,0,0" Foreground="#3d6cb9"></materialDesign:PackIcon>
+                <PasswordBox materialDesign:HintAssist.Hint="Enter your Password"  Width="250" Height="40" FontSize="16"
+                         Padding="10" Foreground="#3d6cb9" Margin="0,0,60,90" PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
+            </DockPanel>
+        </Grid>
+        <Button x:Name="btnRegister" Command="{Binding OpenRegisterWindowCommand}" VerticalAlignment="Bottom" Margin="0,0,0,70" Width="150" Height="40" HorizontalAlignment="Center"
+                Content="Register" FontSize="24" Background="#3d6cb9" Foreground="White"></Button>
+        <Button Command="{Binding LoginCommand}" VerticalAlignment="Bottom" Margin="0,0,0,115" Width="150" Height="40" HorizontalAlignment="Center"
+                Content="Login" FontSize="24" Background="#00d1ff"></Button>
+        <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="20" VerticalAlignment="Bottom"></TextBlock>
+        <Label Content="X" FontSize="18" FontWeight="UltraBold" Margin="0,5,5,0" HorizontalAlignment="Right" Height="26" VerticalAlignment="Top"
+                   Cursor="Hand" Style="{StaticResource labelStyle}" MouseUp="Label_MouseUp"></Label>
+    </Grid>
+</Window>
