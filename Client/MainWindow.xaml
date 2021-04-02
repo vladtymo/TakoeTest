@@ -16,7 +16,7 @@
         ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow"
         AllowsTransparency="False" Background="Transparent" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border CornerRadius="10" Background="#3d6cb9">
+        <Border Background="#3d6cb9">
             <Rectangle Height="550" VerticalAlignment="Top" Margin="10">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -50,25 +50,42 @@
 
             <Button  Width="220" Height="40" Content="Create new test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="0"></Button>
             <Button  Width="220" Height="40" Content="Start test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="1"></Button>
-            <Button  Width="220" Height="40" Content="Check test result" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>
-            <Button  Width="220" Height="40" Content="Change your tests" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="3"></Button>
-            <Button  Width="220" Height="40" Content="Account" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="5"></Button>
+            <!--<Button  Width="220" Height="40" Content="Check test result" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>-->
+            <Button  Width="220" Height="40" Content="Edit test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>
+            <ComboBox Grid.Row="3" Grid.Column="0" Margin="10" materialDesign:HintAssist.Hint="Choose your test" x:Name="tests_name"></ComboBox>
+            <Button  Width="220" Height="40" Content="Account settings" FontSize="16" Background="#00d1ff" Grid.Column="0" Grid.Row="5"></Button>
 
-            <ComboBox Grid.Row="4" Grid.Column="0" Margin="10" materialDesign:HintAssist.Hint="Choose your test" x:Name="tests_name"></ComboBox>
+            <Grid  Margin="5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content ="Test name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontWeight="Bold"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Content ="Test mark" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" FontWeight="Bold"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Content ="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Content ="True answers" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="2" Grid.Column="2" Content ="Wrong answers" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="3" Grid.Column="0" Content ="7" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="3" Grid.Column="1" Content ="3" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="4" Grid.Column="0" Content ="Student" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="4" Grid.Column="1" Content ="You" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="5" Grid.Column="0" Content ="Test Author" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="5" Grid.Column="1" Content ="Someone" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+
+            </Grid>
             
-            <ListBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="6" Margin="20" >
-                <DockPanel LastChildFill="False" Margin="5">
-                    <Label Margin="5" FontSize="16">Test name</Label>
-                    <Label Margin="5" FontSize="16">Test state</Label>
-                    <Label Margin="5" FontSize="16">Test author</Label>
-                    <Label Margin="5" FontSize="16">Test mark</Label>
-                </DockPanel>
-            </ListBox>
         </Grid>
 
-
-
-        <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="20" VerticalAlignment="Bottom"></TextBlock>
+        <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="10" VerticalAlignment="Bottom"></TextBlock>
 
     </Grid>
 </Window>
