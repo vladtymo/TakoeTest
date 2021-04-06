@@ -15,6 +15,28 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow"
         AllowsTransparency="False" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="gridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="65"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="220"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="gridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="65"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Border Background="#3d6cb9">
             <Rectangle Height="550" VerticalAlignment="Top" Margin="10">
@@ -27,7 +49,7 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Border>
-        <Image Source="/Picture/unnamed.png" Width="100" Height="100" VerticalAlignment="Top" Margin="0,10,0,0"/>
+        <!--<Image Source="/Picture/unnamed.png" Width="100" Height="100" VerticalAlignment="Top" Margin="0,10,0,0"/>-->
         <Rectangle Width="750" Height="450" Fill="White">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#184d47" Direction="0" BlurRadius="10" RenderingBias="Quality"></DropShadowEffect>
@@ -48,13 +70,66 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button  Width="220" Height="40" Content="Create new test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="0"></Button>
+            <!--<Button  Width="220" Height="40" Content="Create new test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="0"></Button>
             <Button  Width="220" Height="40" Content="Start test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="1"></Button>
-            <!--<Button  Width="220" Height="40" Content="Check test result" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>-->
+            --><!--<Button  Width="220" Height="40" Content="Check test result" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>--><!--
             <Button  Width="220" Height="40" Content="Edit test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>
             <ComboBox Grid.Row="3" Grid.Column="0" Margin="10" materialDesign:HintAssist.Hint="Choose your test" x:Name="tests_name"></ComboBox>
-            <Button  Width="220" Height="40" Content="Account settings" FontSize="16" Background="#00d1ff" Grid.Column="0" Grid.Row="5"></Button>
-
+            <Button  Width="220" Height="40" Content="Account settings" FontSize="16" Background="#00d1ff" Grid.Column="0" Grid.Row="5"></Button>-->
+            <Grid x:Name="gridMenu" Width="65" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Background="#3d6cb9">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+                </Grid.Effect>
+                <StackPanel>
+                    <Grid Height="150" Background="#FF31577E" RenderTransformOrigin="0.5,5.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform></ScaleTransform>
+                                <SkewTransform></SkewTransform>
+                                <RotateTransform></RotateTransform>
+                                <TranslateTransform></TranslateTransform>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Button x:Name="btnOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"
+                                Foreground="#00d1ff" Click="btnOpenMenu_Click">
+                            <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                        </Button>
+                        <Button x:Name="btnCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"
+                                Foreground="#00d1ff" Click="btnCloseMenu_Click">
+                            <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                        </Button>
+                        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Height="80" VerticalAlignment="Bottom"/>
+                    </Grid>
+                    <ListView x:Name="lvMenu" Foreground="#00d1ff" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListViewItem x:Name="itemCreate" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CreditCardAdd" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Create new test" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="itemStart" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="BookPlay" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Start new test" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Edit test" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CogOutline" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Settings" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+            </Grid>
             <Grid  Margin="5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="6">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -69,17 +144,17 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content ="Test name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontWeight="Bold"></Label>
-                <Label Grid.Row="1" Grid.Column="0" Content ="Test mark" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" FontWeight="Bold"></Label>
-                <Label Grid.Row="1" Grid.Column="1" Content ="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="2" Grid.Column="0" Content ="True answers" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="2" Grid.Column="2" Content ="Wrong answers" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="3" Grid.Column="0" Content ="7" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="3" Grid.Column="1" Content ="3" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="4" Grid.Column="0" Content ="Student" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="4" Grid.Column="1" Content ="You" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="5" Grid.Column="0" Content ="Test Author" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="5" Grid.Column="1" Content ="Someone" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Foreground="#3d6cb9" Content ="Test name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="40" FontWeight="Bold"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Content ="Test mark" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="26" FontWeight="Bold"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Content ="7" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Content ="True answers" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="2" Grid.Column="2" Content ="Wrong answers" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="3" Grid.Column="0" Content ="7" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="3" Grid.Column="1" Content ="3" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="4" Grid.Column="0" Content ="Student" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="4" Grid.Column="1" Content ="You" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="5" Grid.Column="0" Content ="Test Author" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+                <Label Grid.Row="5" Grid.Column="1" Content ="Someone" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
 
             </Grid>
             
