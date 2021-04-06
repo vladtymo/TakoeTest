@@ -21,5 +21,15 @@ namespace WcfService
 		Test GetTestById(int id);
 		[OperationContract]
 		Test GetTestByName(string name);
+
+		[OperationContract]
+		Test GetTestByIdWithQuestions(int id);
+		[OperationContract]
+		Test GetTestByNameWithQuestions(string name);
+
+		[OperationContract]
+		IEnumerable<Test> GetAllTests();
+		[OperationContract]
+		IEnumerable<Test> GetAllTestsInCategory(Category category);
 	}
 }

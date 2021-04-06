@@ -18,5 +18,13 @@ namespace DAL.Entities
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         public bool? IsMale { get; set; }
+
+        //Navigation
+        public IEnumerable<Result> Results { get; set; }
+
+        public User()
+        {
+            Results = new HashSet<Result>();
+        }
     }
 }

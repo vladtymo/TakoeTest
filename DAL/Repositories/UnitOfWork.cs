@@ -18,6 +18,7 @@ namespace DataAccessLayer
         private GenericRepository<Test> testRepository;
         private GenericRepository<Question> questionRepository;
         private GenericRepository<Answer> answerRepository;
+        private GenericRepository<Result> resultRepos;
 
         public IRepository<User> UserRepos
         {
@@ -72,6 +73,17 @@ namespace DataAccessLayer
                     this.categoryRepository = new GenericRepository<Category>(context);
                 }
                 return categoryRepository;
+            }
+        }
+        public IRepository<Result> ResultRepos
+        {
+            get
+            {
+                if (this.resultRepos == null)
+                {
+                    this.resultRepos = new GenericRepository<Result>(context);
+                }
+                return resultRepos;
             }
         }
 

@@ -36,5 +36,7 @@ namespace WcfService.Services
             unit.CategoryRepos.Update(category);
             unit.Save();
         }
+
+        public IEnumerable<Category> GetAllCategories() => unit.CategoryRepos.Get();
     }
 }

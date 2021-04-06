@@ -24,5 +24,8 @@ namespace WcfService.Services
 
         [OperationContract]
         void AddTestToCategory(Category category, Test testToAdd);
+
+        [OperationContract]
+        IEnumerable<Category> GetAllCategories();
     }
 }
