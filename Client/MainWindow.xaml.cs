@@ -23,5 +23,17 @@ namespace Client
         {
             InitializeComponent();
         }
+
+        private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseMenu.Visibility = Visibility.Visible;
+            btnOpenMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseMenu.Visibility = Visibility.Collapsed;
+            btnOpenMenu.Visibility = Visibility.Visible;
+        }
     }
 }
