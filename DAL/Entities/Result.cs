@@ -14,6 +14,7 @@ namespace DAL.Entities
 
         [NotMapped]
         public double Mark { get => RightAnswers / Test.Questions.Count() * 10; }
+        public TimeSpan SpentTime { get; set; }
 
         //Foreign Keys
         public int UserId { get; set; }
