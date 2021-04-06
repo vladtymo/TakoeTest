@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,17 +14,19 @@ namespace DAL
         public string Name { get; set; }
         [Required]
         public TimeSpan PassageTime { get; set; }
-        public IEnumerable<Question> Questions { get; set; }
 
         //Foreign keys
         public int CategoryId { get; set; }
 
         //Navigation prop
         public Category Category { get; set; }
+        public IEnumerable<Question> Questions { get; set; }
+        public IEnumerable<Result> Results { get; set; }
 
         public Test()
         {
             Questions = new HashSet<Question>();
+            Results = new HashSet<Result>();
         }
     }
 }

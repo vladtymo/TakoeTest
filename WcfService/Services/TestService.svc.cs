@@ -35,5 +35,10 @@ namespace WcfService
 
         public Test GetTestById(int id) => unit.TestRepos.GetById(id);
         public Test GetTestByName(string name) => unit.TestRepos.Get(t => t.Name == name).SingleOrDefault();
+        public Test GetTestByIdWithQuestions(int id) => unit.TestRepos.Get(t => t.Id == id, null, $"{nameof(Test.Questions)},{nameof(Question.Answers)}").SingleOrDefault();
+        public Test GetTestByNameWithQuestions(string name) => unit.TestRepos.Get(t => t.Name == name, null, $"{nameof(Test.Questions)},{nameof(Question.Answers)}").SingleOrDefault();
+
+        public IEnumerable<Test> GetAllTests() => unit.TestRepos.Get();
+        public IEnumerable<Test> GetAllTestsInCategory(Category category) => unit.TestRepos.Get(t => t.Category == category);
     }
 }

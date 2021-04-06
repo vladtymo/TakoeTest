@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="Services\CategoryService.svc" />
     <Content Include="Services\QuestionAnswerService.svc" />
+    <Content Include="Services\ResultService.svc" />
     <Content Include="Services\TestService.svc" />
     <Content Include="Services\UserService.svc" />
     <Content Include="Web.config" />
@@ -74,8 +75,12 @@
     </Compile>
     <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Interfaces\IQuestionAnswerService.cs" />
+    <Compile Include="Interfaces\IResultService.cs" />
     <Compile Include="Services\QuestionAnswerService.svc.cs">
       <DependentUpon>QuestionAnswerService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ResultService.svc.cs">
+      <DependentUpon>ResultService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\TestService.svc.cs">
       <DependentUpon>TestService.svc</DependentUpon>

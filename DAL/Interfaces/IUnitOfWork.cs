@@ -15,6 +15,7 @@ namespace DataAccessLayer.Interfaces
         IRepository<Category> CategoryRepos { get; }
         IRepository<Question> QuestionRepos { get; }
         IRepository<Test> TestRepos { get; }
+        IRepository<Result> ResultRepos { get; }
         void Save();
     }
 }
