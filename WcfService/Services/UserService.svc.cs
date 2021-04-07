@@ -2,6 +2,7 @@
 using DAL;
 using DAL.Entities;
 using DataAccessLayer;
+using DataAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace WcfService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class UserService : IUserService
     {
-        UnitOfWork unit;
+        IUnitOfWork unit;
         IMapper mapper;
         public UserService()
         {
@@ -93,6 +94,7 @@ namespace WcfService
         public UserDTO GetUserByNickAndPass(string nick, string pass) => mapper.Map<UserDTO>(unit.UserRepos.Get(u => u.Nickname == nick && u.Password == pass).SingleOrDefault());
         public UserDTO GetUserByNick(string nick) => mapper.Map<UserDTO>(unit.UserRepos.Get(u => u.Nickname == nick).SingleOrDefault());
         public UserDTO GetUserByEmail(string email) => mapper.Map<UserDTO>(unit.UserRepos.Get(u => u.Email == email).SingleOrDefault());
+        public UserDTO GetUserByEmailOrNickname(string login) => mapper.Map<UserDTO>(unit.UserRepos.Get(u => u.Nickname == login || u.Email == login).SingleOrDefault());
 
         public void AddNewUser(UserDTO user)
         {

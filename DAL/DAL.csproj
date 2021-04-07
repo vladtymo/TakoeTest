@@ -67,9 +67,9 @@
     <Compile Include="Migrations\202103251849595_Start_AddUserEntity.designer.cs">
       <DependentUpon>202103251849595_Start_AddUserEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104061319157_AddCategoryTestQuestionAnswerResultEntties.cs" />
-    <Compile Include="Migrations\202104061319157_AddCategoryTestQuestionAnswerResultEntties.designer.cs">
-      <DependentUpon>202104061319157_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
+    <Compile Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs" />
+    <Compile Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.designer.cs">
+      <DependentUpon>202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,8 +84,8 @@
     <EmbeddedResource Include="Migrations\202103251849595_Start_AddUserEntity.resx">
       <DependentUpon>202103251849595_Start_AddUserEntity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104061319157_AddCategoryTestQuestionAnswerResultEntties.resx">
-      <DependentUpon>202104061319157_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.resx">
+      <DependentUpon>202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

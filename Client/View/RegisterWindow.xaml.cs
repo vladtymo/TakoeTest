@@ -30,7 +30,7 @@ namespace Client
         {
             if (this.DataContext != null)
             {
-                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password;
+                ((dynamic)this.DataContext).UserViewModel.Password = ((PasswordBox)sender).Password;
             }
         }
     }

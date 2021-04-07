@@ -54,7 +54,7 @@
             </Grid.ColumnDefinitions>
             <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
                 <materialDesign:PackIcon Kind="AccountGroup" Width="30" Height="30" VerticalAlignment ="Center" Foreground="#3d6cb9" Margin="85,40,0,0"></materialDesign:PackIcon>
-                <TextBox x:Name="tbName" Text="{Binding NickName, Mode=TwoWay}" materialDesign:HintAssist.Hint="Enter your Nickname" Margin="0,40,60,0" Width="250" Height="40" FontSize="16"
+                <TextBox x:Name="tbName" Text="{Binding UserViewModel.NickName, Mode=TwoWay}" materialDesign:HintAssist.Hint="Enter your Nickname or email" Margin="0,40,60,0" Width="250" Height="40" FontSize="16"
                          Padding="10" Foreground="#3d6cb9"></TextBox>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.ColumnSpan="2">

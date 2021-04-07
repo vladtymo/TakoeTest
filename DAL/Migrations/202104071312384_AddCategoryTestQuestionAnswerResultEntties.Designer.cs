@@ -13,7 +13,7 @@ namespace DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202104061319157_AddCategoryTestQuestionAnswerResultEntties"; }
+            get { return "202104071312384_AddCategoryTestQuestionAnswerResultEntties"; }
         }
         
         string IMigrationMetadata.Source
