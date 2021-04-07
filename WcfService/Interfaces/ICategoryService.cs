@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using WcfService.DTO;
 
 namespace WcfService.Services
 {
@@ -13,19 +14,19 @@ namespace WcfService.Services
     public interface ICategoryService
     {
         [OperationContract]
-        void AddCategory(Category category);
+        void AddCategory(CategoryDTO category);
         [OperationContract]
         bool IsCategoryNameExist(string name);
 
         [OperationContract]
-        Category GetCategoryById(int id);
+        CategoryDTO GetCategoryById(int id);
         [OperationContract]
-        Category GetCategoryByName(string name);
+        CategoryDTO GetCategoryByName(string name);
 
         [OperationContract]
-        void AddTestToCategory(Category category, Test testToAdd);
+        void AddTestToCategory(CategoryDTO category, TestDTO testToAdd);
 
         [OperationContract]
-        IEnumerable<Category> GetAllCategories();
+        IEnumerable<CategoryDTO> GetAllCategories();
     }
 }

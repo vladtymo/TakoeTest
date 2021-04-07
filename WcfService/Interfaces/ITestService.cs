@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using WcfService.DTO;
 
 namespace WcfService
 {
@@ -13,23 +14,23 @@ namespace WcfService
 	public interface ITestService
 	{
 		[OperationContract]
-		void AddTest(Test test);
+		void AddTest(TestDTO test);
 		[OperationContract]
 		bool IsTextNameExist(string name);
 
 		[OperationContract]
-		Test GetTestById(int id);
+		TestDTO GetTestById(int id);
 		[OperationContract]
-		Test GetTestByName(string name);
+		TestDTO GetTestByName(string name);
 
 		[OperationContract]
-		Test GetTestByIdWithQuestions(int id);
+		TestDTO GetTestByIdWithQuestions(int id);
 		[OperationContract]
-		Test GetTestByNameWithQuestions(string name);
+		TestDTO GetTestByNameWithQuestions(string name);
 
 		[OperationContract]
-		IEnumerable<Test> GetAllTests();
+		IEnumerable<TestDTO> GetAllTests();
 		[OperationContract]
-		IEnumerable<Test> GetAllTestsInCategory(Category category);
+		IEnumerable<TestDTO> GetAllTestsInCategory(CategoryDTO category);
 	}
 }

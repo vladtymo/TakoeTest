@@ -1,4 +1,6 @@
-﻿using DAL.Entities;
+﻿using AutoMapper;
+using DAL;
+using DAL.Entities;
 using DataAccessLayer;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WcfService.DTO;
 
 namespace WcfService
 {
@@ -15,9 +18,27 @@ namespace WcfService
     public class UserService : IUserService
     {
         UnitOfWork unit;
+        IMapper mapper;
         public UserService()
         {
             unit = new UnitOfWork();
+
+            IConfigurationProvider config = new MapperConfiguration(
+                cfg =>
+                {
+                    cfg.CreateMap<User, UserDTO>();
+                    cfg.CreateMap<Category, CategoryDTO>();
+                    cfg.CreateMap<Test, TestDTO>();
+                    cfg.CreateMap<Question, QuestionDTO>();
+                    cfg.CreateMap<Answer, AnswerDTO>();
+
+                    cfg.CreateMap<UserDTO, User>();
+                    cfg.CreateMap<CategoryDTO, Category>();
+                    cfg.CreateMap<TestDTO, Test>();
+                    cfg.CreateMap<QuestionDTO, Question>();
+                    cfg.CreateMap<AnswerDTO, Answer>();
+                });
+            mapper = new Mapper(config);
         }
 
         public bool IsExistNickname(string nickname) => unit.UserRepos.Get(u => u.Nickname == nickname).Count() != 0;
@@ -67,15 +88,15 @@ namespace WcfService
 
             return true;
         }
-        public bool IsRightPasswordInUser(User user, string password) => user.Password == password;
+        public bool IsRightPasswordInUser(UserDTO user, string password) => user.Password == password;
 
-        public User GetUserByNickAndPass(string nick, string pass) => unit.UserRepos.Get(u => u.Nickname == nick && u.Password == pass).SingleOrDefault();
-        public User GetUserByNick(string nick) => unit.UserRepos.Get(u => u.Nickname == nick).SingleOrDefault();
-        public User GetUserByEmail(string email) => unit.UserRepos.Get(u => u.Email == email).SingleOrDefault();
+        public UserDTO GetUserByNickAndPass(string nick, string pass) => mapper.Map<UserDTO>(unit.UserRepos.Get(u => u.Nickname == nick && u.Password == pass).SingleOrDefault());
+        public UserDTO GetUserByNick(string nick) => mapper.Map<UserDTO>(unit.UserRepos.Get(u => u.Nickname == nick).SingleOrDefault());
+        public UserDTO GetUserByEmail(string email) => mapper.Map<UserDTO>(unit.UserRepos.Get(u => u.Email == email).SingleOrDefault());
 
-        public void AddNewUser(User user)
+        public void AddNewUser(UserDTO user)
         {
-            unit.UserRepos.Insert(user);
+            unit.UserRepos.Insert(mapper.Map<User>(user));
             unit.Save();
         }
     }

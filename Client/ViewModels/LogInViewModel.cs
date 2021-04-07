@@ -132,7 +132,7 @@ namespace Client
         public void Register()
         {
             User user = new User() { Fullname = fullName, Nickname = nickName, BirthDate = DateTime.Parse(date), Email = email, Gender = gender, Password = password };
-            userService.AddNewUser(user);
+            //userService.AddNewUser(user);
             //MessageBox.Show($"{user.Fullname}, {user.Nickname} {user.BirthDate}, {user.Email}, {user.Password}, {user.Gender}");
             if (logInWindow == null)
                 logInWindow = new LogInWindow();

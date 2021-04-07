@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using WcfService.DTO;
 
 namespace WcfService.Services
 {
@@ -13,6 +14,6 @@ namespace WcfService.Services
     public interface IResultService
     {
         [OperationContract]
-        void AddResult(Result result);
+        void AddResult(ResultDTO result);
     }
 }
