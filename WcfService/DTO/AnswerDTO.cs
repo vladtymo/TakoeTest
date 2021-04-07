@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace DAL
+namespace WcfService.DTO
 {
-    public class Answer
+    public class AnswerDTO
     {
         public int Id { get; set; }
         public string Text { get; set; }
         public bool IsRight { get; set; }
 
-        //Foreign keys
         public int QuestionId { get; set; }
 
-        //Navigation prop
-        public virtual Question Question { get; set; }
+        public QuestionDTO Question { get; set; }
     }
 }

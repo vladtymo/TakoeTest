@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WcfService;
 
 namespace Client
 {
@@ -14,6 +16,7 @@ namespace Client
     {
         private RegisterWindow registerWindow;
         private LogInWindow logInWindow;
+        private UserService userService;
 
         private string fullName = "";
         public string FullName
@@ -94,6 +97,7 @@ namespace Client
             cancelCommand = new DelegateCommand(Cancel);
             loginCommand = new DelegateCommand(Login);
             registerCommand = new DelegateCommand(Register, Permission);
+            userService = new UserService();
 
             PropertyChanged += (sender, args) =>
             {
@@ -127,7 +131,9 @@ namespace Client
         }
         public void Register()
         {
-            MessageBox.Show("Register");
+            User user = new User() { Fullname = fullName, Nickname = nickName, BirthDate = DateTime.Parse(date), Email = email, Gender = gender, Password = password };
+            userService.AddNewUser(user);
+            //MessageBox.Show($"{user.Fullname}, {user.Nickname} {user.BirthDate}, {user.Email}, {user.Password}, {user.Gender}");
             if (logInWindow == null)
                 logInWindow = new LogInWindow();
             CloseWindow();

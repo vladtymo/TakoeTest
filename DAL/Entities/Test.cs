@@ -19,9 +19,9 @@ namespace DAL
         public int CategoryId { get; set; }
 
         //Navigation prop
-        public Category Category { get; set; }
-        public IEnumerable<Question> Questions { get; set; }
-        public IEnumerable<Result> Results { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual IEnumerable<Question> Questions { get; set; }
+        public virtual IEnumerable<Result> Results { get; set; }
 
         public Test()
         {
