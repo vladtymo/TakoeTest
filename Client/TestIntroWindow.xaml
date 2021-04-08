@@ -42,8 +42,9 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Label FontWeight="Bold" FontSize="20">Your last pass:</Label>
-                <Label FontWeight="Bold" FontSize="20" x:Name="lblLastPass" Content="{Binding Path=LastPass}"></Label>
-                <Label FontWeight="Bold" FontSize="20" >/10</Label>
+                <Label FontWeight="Bold" FontSize="20" Content="{Binding Path=LastPass}"></Label>
+                <Label FontWeight="Bold" FontSize="20" >/</Label>
+                <Label FontWeight="Bold" FontSize="20" Content="{Binding Path=CountQuestions}"></Label>
             </StackPanel>
             <ListBox x:Name="listTopPeopleTest" Grid.Row="1" Margin="30,0,20,0">
                 <ListBoxItem>
@@ -58,18 +59,18 @@
                 <ListBox.ItemTemplate >
                     <DataTemplate>
                         <DockPanel Width="620">
-                            <Label x:Name="lblFullName" Content="{Binding Path=FullName}" FontWeight="Bold" Margin="0,0,30,0" Width="140"></Label>
-                            <Label x:Name="lblAuthorName" Content="{Binding Path=AuthorName}" FontWeight="Bold" Width="140" HorizontalContentAlignment="Center"></Label>
-                            <Label x:Name="lblMark" Content="{Binding Path=Mark}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0" FontWeight="Bold" Width="50" HorizontalContentAlignment="Center"></Label>
-                            <Label x:Name="lblCurrAnsw" Content="{Binding Path=CountCurrentAnswers}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,10,0" FontWeight="Bold" Width="130" HorizontalContentAlignment="Center"></Label>
-                            <Label x:Name="lblTime" Content="{Binding Path=TimeResult}" HorizontalAlignment="Right" DockPanel.Dock="Right" FontWeight="Bold" Margin="0,0,10,0" Width="60" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=FullName}" FontWeight="Bold" Margin="0,0,30,0" Width="140"></Label>
+                            <Label Content="{Binding Path=AuthorName}" FontWeight="Bold" Width="140" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=Mark}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0" FontWeight="Bold" Width="50" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=CountCurrentAnswers}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,10,0" FontWeight="Bold" Width="130" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=TimeResult}" HorizontalAlignment="Right" DockPanel.Dock="Right" FontWeight="Bold" Margin="0,0,10,0" Width="60" HorizontalContentAlignment="Center"></Label>
                         </DockPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <DockPanel Grid.Row="2" LastChildFill="False">
                 <Label FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom">Total number of questions:</Label>
-                <Label FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" x:Name="lblAllQuestion" Content="{Binding Path=CountQuestions}"></Label>
+                <Label FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Content="{Binding Path=CountQuestions}"></Label>
             </DockPanel>
             <Border BorderThickness="0,0,0,2" BorderBrush="#FF327FC6"/>
             <Border Grid.Row="2" BorderThickness="0,2,0,0" BorderBrush="#FF327FC6"></Border>
@@ -77,10 +78,6 @@
 
         <Button VerticalAlignment="Bottom" Width="150" Height="40" HorizontalAlignment="Right" 
                 Content="Start" FontSize="24" Background="#00d1ff" Margin="0,0,100,55" x:Name="btnStart" Click="btnStart_Click"></Button>
-        <!--<TextBlock Foreground="White" FontSize="40" FontWeight="ExtraBold" Text="Takoe" Margin="140,40,0,0" Height="60" Width="140"
-                   HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
-        <TextBlock Foreground="White" FontSize="40" FontWeight="ExtraBold" Text="Test" Margin="0,40,140,0" Height="60" Width="140"
-                   HorizontalAlignment="Right" VerticalAlignment="Top"></TextBlock>-->
         <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="20" VerticalAlignment="Bottom"></TextBlock>
     </Grid>
 </Window>
