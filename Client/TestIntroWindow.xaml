@@ -42,31 +42,34 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Label FontWeight="Bold" FontSize="20">Your last pass:</Label>
-                <Label FontWeight="Bold" FontSize="20" x:Name="lblLastPass">5/10</Label>
+                <Label FontWeight="Bold" FontSize="20" x:Name="lblLastPass" Content="{Binding Path=LastPass}"></Label>
+                <Label FontWeight="Bold" FontSize="20" >/10</Label>
             </StackPanel>
-            <ListBox x:Name="listTopPeopleTest" Grid.Row="1" Margin="30,0">
+            <ListBox x:Name="listTopPeopleTest" Grid.Row="1" Margin="30,0,20,0">
                 <ListBoxItem>
                     <DockPanel Width="620" LastChildFill="True" >
-                        <Label FontWeight="Bold" FontSize="16">Full Name</Label>
-                        <Label HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0" FontWeight="Bold" FontSize="16">Mark</Label>
-                        <Label HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,10,0" FontWeight="Bold" FontSize="16">Correct answers</Label>
-                        <Label HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,0,10,0" FontWeight="Bold" FontSize="16">Time</Label>
+                        <Label FontWeight="Bold" FontSize="16" Margin="0,0,30,0" Width="140">Full Name</Label>
+                        <Label FontWeight="Bold" FontSize="16" Width="140">Creator Test(nick)</Label>
+                        <Label HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0" FontWeight="Bold" FontSize="16" Width="50">Mark</Label>
+                        <Label HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,10,0" FontWeight="Bold" FontSize="16" Width="130">Correct answers</Label>
+                        <Label HorizontalAlignment="Right" DockPanel.Dock="Right" FontWeight="Bold" FontSize="16" Margin="0,0,10,0" Width="60" HorizontalContentAlignment="Center">Time</Label>
                     </DockPanel>
                 </ListBoxItem>
                 <ListBox.ItemTemplate >
                     <DataTemplate>
                         <DockPanel Width="620">
-                            <Label x:Name="lblFullName" Content="{Binding Path=FullName}" FontWeight="Bold" ></Label>
-                            <Label x:Name="lblMark" Content="{Binding Path=Mark}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="35,0,10,0" FontWeight="Bold" ></Label>
-                            <Label x:Name="lblCurrAnsw" Content="{Binding Path=CorrectAnswer}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="35,0,35,0" FontWeight="Bold"></Label>
-                            <Label x:Name="lblTime" Content="{Binding Path=Time}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,0,30,0" FontWeight="Bold"></Label>
+                            <Label x:Name="lblFullName" Content="{Binding Path=FullName}" FontWeight="Bold" Margin="0,0,30,0" Width="140"></Label>
+                            <Label x:Name="lblAuthorName" Content="{Binding Path=AuthorName}" FontWeight="Bold" Width="140" HorizontalContentAlignment="Center"></Label>
+                            <Label x:Name="lblMark" Content="{Binding Path=Mark}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0" FontWeight="Bold" Width="50" HorizontalContentAlignment="Center"></Label>
+                            <Label x:Name="lblCurrAnsw" Content="{Binding Path=CountCurrentAnswers}" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,10,0" FontWeight="Bold" Width="130" HorizontalContentAlignment="Center"></Label>
+                            <Label x:Name="lblTime" Content="{Binding Path=TimeResult}" HorizontalAlignment="Right" DockPanel.Dock="Right" FontWeight="Bold" Margin="0,0,10,0" Width="60" HorizontalContentAlignment="Center"></Label>
                         </DockPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <DockPanel Grid.Row="2">
+            <DockPanel Grid.Row="2" LastChildFill="False">
                 <Label FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom">Total number of questions:</Label>
-                <Label FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" x:Name="lblAllQuestion">25</Label>
+                <Label FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" x:Name="lblAllQuestion" Content="{Binding Path=CountQuestions}"></Label>
             </DockPanel>
             <Border BorderThickness="0,0,0,2" BorderBrush="#FF327FC6"/>
             <Border Grid.Row="2" BorderThickness="0,2,0,0" BorderBrush="#FF327FC6"></Border>

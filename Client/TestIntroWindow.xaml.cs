@@ -23,11 +23,15 @@ namespace Client
         public TestIntroWindow()
         {
             InitializeComponent();
+            SimpTest simpTest = new SimpTest() { CountQuestions = 10, LastPass = 7 };
+            this.DataContext = simpTest;
+            listTopPeopleTest.Items.Add(new UserTestResult() { AuthorName = "Koval Kolya", FullName = "Oleksandr Zhyhula", TimeResult = new TimeSpan(0, 15, 25), CountCurrentAnswers = 10, Mark = 10 });
+            listTopPeopleTest.Items.Add(new UserTestResult() { AuthorName = "Batka", FullName = "Oleksandr Chernij", TimeResult = new TimeSpan(0, 12, 20), CountCurrentAnswers = 9, Mark = 9 });
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            listTopPeopleTest.Items.Add(new TopPeopleTestViewModel() { FullName = "Good Man", Time = "12:15", CorrectAnswer = "10/10", Mark = "10" });
+            MessageBox.Show("Test Started");
         }
     }
 }
