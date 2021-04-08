@@ -201,6 +201,12 @@ namespace Client.UserServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByEmail", ReplyAction="http://tempuri.org/IUserService/GetUserByEmailResponse")]
         System.Threading.Tasks.Task<Client.UserServiceReference.UserDTO> GetUserByEmailAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByEmailOrNickname", ReplyAction="http://tempuri.org/IUserService/GetUserByEmailOrNicknameResponse")]
+        Client.UserServiceReference.UserDTO GetUserByEmailOrNickname(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByEmailOrNickname", ReplyAction="http://tempuri.org/IUserService/GetUserByEmailOrNicknameResponse")]
+        System.Threading.Tasks.Task<Client.UserServiceReference.UserDTO> GetUserByEmailOrNicknameAsync(string login);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddNewUser", ReplyAction="http://tempuri.org/IUserService/AddNewUserResponse")]
         void AddNewUser(Client.UserServiceReference.UserDTO user);
         
@@ -334,6 +340,14 @@ namespace Client.UserServiceReference {
         
         public System.Threading.Tasks.Task<Client.UserServiceReference.UserDTO> GetUserByEmailAsync(string email) {
             return base.Channel.GetUserByEmailAsync(email);
+        }
+        
+        public Client.UserServiceReference.UserDTO GetUserByEmailOrNickname(string login) {
+            return base.Channel.GetUserByEmailOrNickname(login);
+        }
+        
+        public System.Threading.Tasks.Task<Client.UserServiceReference.UserDTO> GetUserByEmailOrNicknameAsync(string login) {
+            return base.Channel.GetUserByEmailOrNicknameAsync(login);
         }
         
         public void AddNewUser(Client.UserServiceReference.UserDTO user) {

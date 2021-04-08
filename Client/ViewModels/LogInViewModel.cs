@@ -20,11 +20,15 @@ namespace Client
         private UserServiceClient userService;
         private IMapper mapper;
 
+        // Я (Коля) виніс цей об'єкт сюди для того щоб він завчасно не видалився. Воно працює - не лізь, будь ласка.
+        // Цей об'єкт хоче жити. Не знищуй його
+        MainWindow mainWind;
+
         private UserViewModel userViewModel;
-        public UserViewModel UserViewModel 
-        { 
-            get => userViewModel; 
-            set => SetProperty(ref userViewModel, value); 
+        public UserViewModel UserViewModel
+        {
+            get => userViewModel;
+            set => SetProperty(ref userViewModel, value);
         }
 
         private Command openRegisterWindowCommand;
@@ -40,8 +44,7 @@ namespace Client
             openRegisterWindowCommand = new DelegateCommand(OpenRegisterWindow);
             cancelCommand = new DelegateCommand(Cancel);
             loginCommand = new DelegateCommand(Login);
-            registerCommand = new DelegateCommand(Register);
-            //registerCommand = new DelegateCommand(Register, Permission);
+            registerCommand = new DelegateCommand(Register, Permission);
             userService = new UserServiceClient();
             userViewModel = new UserViewModel();
 
@@ -66,14 +69,18 @@ namespace Client
                 });
             mapper = new Mapper(config);
 
-            PropertyChanged += (sender, args) =>
-            {
-                if (args.PropertyName == nameof(userViewModel.NickName) || args.PropertyName == nameof(userViewModel.FullName) || args.PropertyName == nameof(userViewModel.Password)
-                          || args.PropertyName == nameof(userViewModel.Email) || args.PropertyName == nameof(userViewModel.Gender) || args.PropertyName == nameof(userViewModel.Date))
-                {
-                    registerCommand.RaiseCanExecuteChanged();
-                }
-            };
+            userViewModel.PropertyChanged += (sender, args) =>
+                        {
+                            if (args.PropertyName == nameof(UserViewModel.NickName)
+                            || args.PropertyName == nameof(UserViewModel.FullName)
+                            || args.PropertyName == nameof(UserViewModel.Password)
+                            || args.PropertyName == nameof(UserViewModel.Email)
+                            || args.PropertyName == nameof(UserViewModel.Gender)
+                            || args.PropertyName == nameof(UserViewModel.Date))
+                            {
+                                registerCommand.RaiseCanExecuteChanged();
+                            }
+                        };
         }
         public void OpenRegisterWindow()
         {
@@ -107,24 +114,25 @@ namespace Client
         }
         public bool Permission()
         {
-            if (userViewModel.NickName.Length == 0 || userViewModel.FullName.Length == 0 || userViewModel.Email.Length == 0 || userViewModel.Password.Length < 8
-                || userViewModel.Gender == -1 || userViewModel.Date.Length == 0)
+            if (UserViewModel.NickName.Length == 0 || UserViewModel.FullName.Length == 0
+                || UserViewModel.Email.Length == 0 || UserViewModel.Password.Length < 8
+                || UserViewModel.Gender == -1 || UserViewModel.Date.Length == 0)
                 return false;
             return true;
         }
         public async void Login()
         {
-            UserDTO user = await userService.GetUserByNickAsync(userViewModel.NickName);
-            if (user == null)
-                user = await userService.GetUserByEmailAsync(userViewModel.NickName);
+            UserDTO user = await userService.GetUserByEmailOrNicknameAsync(userViewModel.NickName);
             if (user == null)
                 MessageBox.Show("Invalid login");
             else
             {
                 if (userService.IsRightPasswordInUser(user, userViewModel.Password))
-                    MessageBox.Show("Ok. Prohodi dorohysha");
-                else
-                    MessageBox.Show("INVALID PASSWORD");
+                {
+                    mainWind = new MainWindow(mapper.Map<UserViewModel>(user));
+                    CloseWindow();
+                    mainWind.ShowDialog();
+                }
             }
         }
     }

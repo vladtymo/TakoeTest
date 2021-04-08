@@ -49,6 +49,12 @@
   <wsdl:message name="IUserService_GetUserByEmail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByEmailResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmailOrNickname_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailOrNickname" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmailOrNickname_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailOrNicknameResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_AddNewUser_InputMessage">
     <wsdl:part name="parameters" element="tns:AddNewUser" />
   </wsdl:message>
@@ -83,6 +89,10 @@
     <wsdl:operation name="GetUserByEmail">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByEmail" message="tns:IUserService_GetUserByEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailResponse" message="tns:IUserService_GetUserByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailOrNickname">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailOrNickname" message="tns:IUserService_GetUserByEmailOrNickname_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailOrNicknameResponse" message="tns:IUserService_GetUserByEmailOrNickname_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddNewUser" message="tns:IUserService_AddNewUser_InputMessage" />
@@ -147,6 +157,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserByEmail">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailOrNickname">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByEmailOrNickname" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

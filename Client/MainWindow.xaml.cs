@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        UserViewModel userModel;
+        public MainWindow(UserViewModel model)
         {
             InitializeComponent();
+            userModel = model;
         }
 
         private void btnOpenMenu_Click(object sender, RoutedEventArgs e)

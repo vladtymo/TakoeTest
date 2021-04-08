@@ -33,6 +33,8 @@ namespace WcfService
         UserDTO GetUserByNick(string nick);
         [OperationContract]
         UserDTO GetUserByEmail(string email);
+        [OperationContract]
+        UserDTO GetUserByEmailOrNickname(string login);
 
         //Add
         [OperationContract]
