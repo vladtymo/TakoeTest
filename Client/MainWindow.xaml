@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Main window" Height="650" Width="800"
+        Title="Main window" Height="650" Width="900"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -15,6 +15,9 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow"
         AllowsTransparency="False" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:MainViewModel></local:MainViewModel>
+    </Window.DataContext>
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="gridMenu">
@@ -28,6 +31,16 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="65"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Style x:Key="btnMenuStyle" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Foreground" Value="#00d1ff"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenMenu">
@@ -49,15 +62,14 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Border>
-        <!--<Image Source="/Picture/unnamed.png" Width="100" Height="100" VerticalAlignment="Top" Margin="0,10,0,0"/>-->
-        <Rectangle Width="750" Height="450" Fill="White">
+        <Rectangle Width="800" Height="450" Fill="White">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#184d47" Direction="0" BlurRadius="10" RenderingBias="Quality"></DropShadowEffect>
             </Rectangle.Effect>
         </Rectangle>
-        <Grid Width="750" Height="450">
+        <Grid Width="800" Height="450">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -69,13 +81,6 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-
-            <!--<Button  Width="220" Height="40" Content="Create new test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="0"></Button>
-            <Button  Width="220" Height="40" Content="Start test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="1"></Button>
-            --><!--<Button  Width="220" Height="40" Content="Check test result" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>--><!--
-            <Button  Width="220" Height="40" Content="Edit test" FontSize="20" Background="#00d1ff" Grid.Column="0" Grid.Row="2"></Button>
-            <ComboBox Grid.Row="3" Grid.Column="0" Margin="10" materialDesign:HintAssist.Hint="Choose your test" x:Name="tests_name"></ComboBox>
-            <Button  Width="220" Height="40" Content="Account settings" FontSize="16" Background="#00d1ff" Grid.Column="0" Grid.Row="5"></Button>-->
             <Grid x:Name="gridMenu" Width="65" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Background="#3d6cb9">
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
@@ -102,64 +107,72 @@
                         </Button>
                         <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Height="80" VerticalAlignment="Bottom"/>
                     </Grid>
-                    <ListView x:Name="lvMenu" Foreground="#00d1ff" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <ListViewItem x:Name="itemCreate" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="CreditCardAdd" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="Create new test" VerticalAlignment="Center" Margin="20 10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem x:Name="itemStart" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="BookPlay" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="Start new test" VerticalAlignment="Center" Margin="20 10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="Edit test" VerticalAlignment="Center"  Margin="20 10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="CogOutline" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="Settings" VerticalAlignment="Center"  Margin="20 10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                    </ListView>
+                    <Button Height="60" Style="{DynamicResource btnMenuStyle}" Command="{Binding HomeViewCommand}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Home" Height="25" Width="25" Margin="20,10,10,10"/>
+                                    <TextBlock Text="Home" VerticalAlignment="Center" Margin="20,0,0,20"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Height="60" Style="{DynamicResource btnMenuStyle}" Command="{Binding LastTestViewCommand}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Lastpass" Height="25" Width="25" Margin="20,10,10,10"/>
+                                    <TextBlock Text="Last result" VerticalAlignment="Center" Margin="20,0,0,18"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Height="60" Style="{DynamicResource btnMenuStyle}" Command="{Binding OpenCreateTestWindowCommand}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="CreditCardAdd" Height="25" Width="25" Margin="20,10,10,10"/>
+                                    <TextBlock Text="Create new test" VerticalAlignment="Center" Margin="20,0,0,18"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Height="60" Style="{DynamicResource btnMenuStyle}" Command="{Binding ShowTestViewCommand}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="BookPlay" Height="25" Width="25" Margin="20,10,10,10"/>
+                                    <TextBlock Text="Start test" VerticalAlignment="Center"  Margin="20,0,0,18"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Height="60" Style="{DynamicResource btnMenuStyle}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="20,10,10,10"/>
+                                    <TextBlock Text="Edit test" VerticalAlignment="Center"  Margin="20,0,0,18"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </StackPanel>
             </Grid>
-            <Grid  Margin="5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="6">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="6" HorizontalAlignment="Right">
+                <ContentControl Margin="10" Content="{Binding CurrentView}">
 
-                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Foreground="#3d6cb9" Content ="Test name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="40" FontWeight="Bold"></Label>
-                <Label Grid.Row="1" Grid.Column="0" Content ="Test mark" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="26" FontWeight="Bold"></Label>
-                <Label Grid.Row="1" Grid.Column="1" Content ="7" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="2" Grid.Column="0" Content ="True answers" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="2" Grid.Column="2" Content ="Wrong answers" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="3" Grid.Column="0" Content ="7" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="3" Grid.Column="1" Content ="3" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="4" Grid.Column="0" Content ="Student" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="4" Grid.Column="1" Content ="You" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="5" Grid.Column="0" Content ="Test Author" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-                <Label Grid.Row="5" Grid.Column="1" Content ="Someone" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
-
+                </ContentControl>
             </Grid>
-            
         </Grid>
 
+        <Button x:Name="btnSettings" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20" Style="{DynamicResource btnMenuStyle}">
+            <Button.Template>
+                <ControlTemplate>
+                    <materialDesign:PackIcon Width="30" Height="30" Kind="Settings"></materialDesign:PackIcon>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
         <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="10" VerticalAlignment="Bottom"></TextBlock>
 
     </Grid>
