@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51881/Services/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51881/Services/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51881/Services/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_IsExistNickname_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistNickname" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsExistNickname_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistNicknameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsExistEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsExistEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsRightPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsRightPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsRightPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsRightPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsRightPasswordInUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsRightPasswordInUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsRightPasswordInUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsRightPasswordInUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByNickAndPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNickAndPass" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByNickAndPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNickAndPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByNick_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNick" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByNick_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNickResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddNewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="IsExistNickname">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsExistNickname" message="tns:IUserService_IsExistNickname_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsExistNicknameResponse" message="tns:IUserService_IsExistNickname_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsExistEmail" message="tns:IUserService_IsExistEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsExistEmailResponse" message="tns:IUserService_IsExistEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsRightPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsRightPassword" message="tns:IUserService_IsRightPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsRightPasswordResponse" message="tns:IUserService_IsRightPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsRightPasswordInUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsRightPasswordInUser" message="tns:IUserService_IsRightPasswordInUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsRightPasswordInUserResponse" message="tns:IUserService_IsRightPasswordInUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByNickAndPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByNickAndPass" message="tns:IUserService_GetUserByNickAndPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByNickAndPassResponse" message="tns:IUserService_GetUserByNickAndPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByNick">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByNick" message="tns:IUserService_GetUserByNick_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByNickResponse" message="tns:IUserService_GetUserByNick_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByEmail" message="tns:IUserService_GetUserByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailResponse" message="tns:IUserService_GetUserByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddNewUser" message="tns:IUserService_AddNewUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddNewUserResponse" message="tns:IUserService_AddNewUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsExistNickname">
+      <soap:operation soapAction="http://tempuri.org/IUserService/IsExistNickname" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/IsExistEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRightPassword">
+      <soap:operation soapAction="http://tempuri.org/IUserService/IsRightPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRightPasswordInUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/IsRightPasswordInUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByNickAndPass">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByNickAndPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByNick">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByNick" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
+      <soap:address location="http://localhost:51881/Services/UserService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

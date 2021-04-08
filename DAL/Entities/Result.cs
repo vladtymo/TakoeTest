@@ -21,8 +21,8 @@ namespace DAL.Entities
         public int TestId { get; set; }
 
         //Navigation
-        public User User { get; set; }
-        public Test Test { get; set; }
+        public virtual User User { get; set; }
+        public virtual Test Test { get; set; }
 
         public Result(User user, Test test)
         {

@@ -16,6 +16,6 @@ namespace DAL
         public int QuestionId { get; set; }
 
         //Navigation prop
-        public Question Question { get; set; }
+        public virtual Question Question { get; set; }
     }
 }

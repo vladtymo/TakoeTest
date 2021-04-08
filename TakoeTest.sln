@@ -5,9 +5,10 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1DACDA99-7C8F-4354-B81A-B146C7236230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{553B237B-0692-40FE-B11A-284B3D338B69}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{C9698FEB-A751-4F3D-A538-9F24640585A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{97E409A0-E2F3-4579-B9FE-6634D3764F85} = {97E409A0-E2F3-4579-B9FE-6634D3764F85}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{200EE293-ABB2-483F-8855-4C6AE4F099A9}"
 EndProject
@@ -23,10 +24,6 @@ Global
 		{1DACDA99-7C8F-4354-B81A-B146C7236230}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DACDA99-7C8F-4354-B81A-B146C7236230}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DACDA99-7C8F-4354-B81A-B146C7236230}.Release|Any CPU.Build.0 = Release|Any CPU
-		{553B237B-0692-40FE-B11A-284B3D338B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{553B237B-0692-40FE-B11A-284B3D338B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{553B237B-0692-40FE-B11A-284B3D338B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{553B237B-0692-40FE-B11A-284B3D338B69}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9698FEB-A751-4F3D-A538-9F24640585A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9698FEB-A751-4F3D-A538-9F24640585A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9698FEB-A751-4F3D-A538-9F24640585A8}.Release|Any CPU.ActiveCfg = Release|Any CPU

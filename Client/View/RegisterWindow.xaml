@@ -47,12 +47,12 @@
             </Grid.ColumnDefinitions>
             <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
                 <materialDesign:PackIcon Kind="Account" Width="40" Height="40" Margin="35,35,15,0" Foreground="#3d6cb9"></materialDesign:PackIcon>
-                <TextBox Text="{Binding FullName, Mode=TwoWay}" materialDesign:HintAssist.Hint="Enter your Full Name" Margin="10" Width="540" Height="50" FontSize="20"
+                <TextBox Text="{Binding UserViewModel.FullName, Mode=TwoWay}" materialDesign:HintAssist.Hint="Enter your Full Name" Margin="10" Width="540" Height="50" FontSize="20"
                          Padding="10" Foreground="#3d6cb9"></TextBox>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
                 <materialDesign:PackIcon Kind="AccountGroup" Width="40" Height="40" Margin="35,35,15,0" Foreground="#3d6cb9"></materialDesign:PackIcon>
-                <TextBox Text="{Binding NickName, Mode=TwoWay}" materialDesign:HintAssist.Hint="Enter your Nickname" Margin="10" Width="540" Height="50" FontSize="20"
+                <TextBox Text="{Binding UserViewModel.NickName, Mode=TwoWay}" materialDesign:HintAssist.Hint="Enter your Nickname" Margin="10" Width="540" Height="50" FontSize="20"
                          Padding="10" Foreground="#3d6cb9"></TextBox>
             </DockPanel>
             <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
@@ -62,10 +62,10 @@
             </DockPanel>
             <DockPanel Grid.Row="3" Grid.ColumnSpan="2">
                 <materialDesign:PackIcon Kind="Email" Width="40" Height="40" Margin="35,35,15,0" Foreground="#3d6cb9"></materialDesign:PackIcon>
-                <TextBox Text="{Binding Email, Mode=TwoWay}" x:Name="tbEmail" materialDesign:HintAssist.Hint="Enter your Email" Margin="10" Width="540" Height="50" FontSize="20"
+                <TextBox Text="{Binding UserViewModel.Email, Mode=TwoWay}" x:Name="tbEmail" materialDesign:HintAssist.Hint="Enter your Email" Margin="10" Width="540" Height="50" FontSize="20"
                          Padding="10" Foreground="#3d6cb9"></TextBox>
             </DockPanel>
-            <ComboBox SelectedIndex="{Binding Gender}" Grid.Row="4" VerticalAlignment="Top" Margin="35,10,50,0" materialDesign:HintAssist.Hint="Gender" FontSize="20" Foreground="#3d6cb9">
+            <ComboBox SelectedIndex="{Binding UserViewModel.Gender}" Grid.Row="4" VerticalAlignment="Top" Margin="35,10,50,0" materialDesign:HintAssist.Hint="Gender" FontSize="20" Foreground="#3d6cb9">
                 <ComboBoxItem>
                     <DockPanel>
                         <materialDesign:PackIcon Kind="GenderFemale" Margin="5" Foreground="#3d6cb9"></materialDesign:PackIcon>
@@ -79,7 +79,7 @@
                     </DockPanel>
                 </ComboBoxItem>
             </ComboBox>
-            <DatePicker Text="{Binding Date, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="50,10,35,0" VerticalAlignment="Top" FontSize="20" Focusable="False"
+            <DatePicker Text="{Binding UserViewModel.Date, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="50,10,35,0" VerticalAlignment="Top" FontSize="20" Focusable="False"
                         materialDesign:HintAssist.Hint="Birth Date" DisplayDateEnd="2015/12/31" Foreground="#3d6cb9"></DatePicker>
         </Grid>
         <Button Command="{Binding RegisterCommand}" VerticalAlignment="Bottom" Margin="0,0,100,100" Width="180" Height="50" HorizontalAlignment="Right"

@@ -10,7 +10,7 @@ namespace DAL
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<Test> Tests { get; set; }
+        public virtual IEnumerable<Test> Tests { get; set; }
 
         public Category()
         {

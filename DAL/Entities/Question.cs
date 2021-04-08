@@ -13,11 +13,11 @@ namespace DAL
         public double Value { get; set; }
 
         //Foreign keys
-        public int CategoryId { get; set; }
+        public int TestId { get; set; }
 
         //Navigation
-        public IEnumerable<Answer> Answers { get; set; }
-        public Category Category { get; set; }
+        public virtual IEnumerable<Answer> Answers { get; set; }
+        public virtual Test Test { get; set; }
 
         public Question()
         {

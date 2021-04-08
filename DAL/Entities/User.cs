@@ -13,14 +13,16 @@ namespace DAL.Entities
         [Required]
         public string Nickname { get; set; }
         [Required]
+        public string Fullname { get; set; }
+        [Required]
         public string Password { get; set; }
         [Required]
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
-        public bool? IsMale { get; set; }
+        public int Gender { get; set; }
 
         //Navigation
-        public IEnumerable<Result> Results { get; set; }
+        public virtual IEnumerable<Result> Results { get; set; }
 
         public User()
         {

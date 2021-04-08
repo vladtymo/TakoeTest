@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WcfService.DTO;
 
 namespace WcfService
 {
@@ -23,42 +24,18 @@ namespace WcfService
         [OperationContract]
         bool IsRightPassword(string pass, out string mess);
         [OperationContract]
-        bool IsRightPasswordInUser(User user, string password);
+        bool IsRightPasswordInUser(UserDTO user, string password);
 
         //Get user
         [OperationContract]
-        User GetUserByNickAndPass(string nick, string pass);
+        UserDTO GetUserByNickAndPass(string nick, string pass);
         [OperationContract]
-        User GetUserByNick(string nick);
+        UserDTO GetUserByNick(string nick);
         [OperationContract]
-        User GetUserByEmail(string email);
+        UserDTO GetUserByEmail(string email);
 
         //Add
         [OperationContract]
-        void AddNewUser(User user);
-    }
-
-
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        void AddNewUser(UserDTO user);
     }
 }
