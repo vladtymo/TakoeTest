@@ -63,9 +63,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PassingTestViewModel.cs" />
+    <Compile Include="View\ShowTestsView.xaml.cs">
+      <DependentUpon>ShowTestsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ShowTestViewModel.cs" />
+    <Compile Include="View\LastTestView.xaml.cs">
+      <DependentUpon>LastTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LastTestViewModel.cs" />
+    <Compile Include="View\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="PassingTestWindow.xaml.cs">
+      <DependentUpon>PassingTestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\ShowTestsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LastTestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PassingTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreateNewTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,9 +165,23 @@
   <ItemGroup>
     <Resource Include="Picture\TakoeTestLogo2WhiteStyleT %282%29.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Picture\TakoeTestLogo2WhiteStyleT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\Team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\winner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\create.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

@@ -141,7 +141,7 @@ namespace Client
         }
         public void Login()
         {
-            MessageBox.Show("LOGIN");
+            MessageBox.Show("LogIn");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
