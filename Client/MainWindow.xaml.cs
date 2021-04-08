@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Client
@@ -23,6 +22,18 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseMenu.Visibility = Visibility.Visible;
+            btnOpenMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseMenu.Visibility = Visibility.Collapsed;
+            btnOpenMenu.Visibility = Visibility.Visible;
         }
     }
 }

@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Question.cs" />
+    <Compile Include="Entities\Result.cs" />
+    <Compile Include="Entities\Test.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityFramework\Initializer.cs" />
     <Compile Include="EntityFramework\TestDb.cs" />
@@ -61,6 +66,10 @@
     <Compile Include="Migrations\202103251849595_Start_AddUserEntity.cs" />
     <Compile Include="Migrations\202103251849595_Start_AddUserEntity.designer.cs">
       <DependentUpon>202103251849595_Start_AddUserEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs" />
+    <Compile Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.designer.cs">
+      <DependentUpon>202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +83,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202103251849595_Start_AddUserEntity.resx">
       <DependentUpon>202103251849595_Start_AddUserEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.resx">
+      <DependentUpon>202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
