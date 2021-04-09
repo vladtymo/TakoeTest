@@ -26,6 +26,10 @@ namespace Client
             InitializeComponent();
             userModel = model;
         }
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
 
         private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
         {

@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local = "clr-namespace:TakoeTest.Resource"
+                    xmlns:system = "clr-namespace:System;assembly=mscorlib" >
+    <system:String x:Key = "Main" >Home</system:String >
+    <system:String x:Key = "Last" >Last Result</system:String >
+    <system:String x:Key = "Create" >Create new test</system:String >
+    <system:String x:Key = "Start" >Start test</system:String >
+    <system:String x:Key = "Edit" >Edit test</system:String >
+    <system:String x:Key = "World">World leader</system:String >
+    <system:String x:Key = "World2">in global testing</system:String >
+    <system:String x:Key = "Get" >Get started today!</system:String >
+    <system:String x:Key = "Team" >Created by a team</system:String >
+    <system:String x:Key = "Team2" >of professional programmers</system:String >
+    <system:String x:Key = "Various" >Start various</system:String >
+    <system:String x:Key = "Various2" >tests</system:String >
+    <system:String x:Key = "Your" >Create your</system:String >
+    <system:String x:Key = "Your2" >own tests</system:String >
+    <system:String x:Key = "Develop" >Develop your</system:String >
+    <system:String x:Key = "Develop2" >thinking</system:String >
+</ResourceDictionary>

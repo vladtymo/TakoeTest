@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Client.UserServiceReference;
+using System.Threading;
 
 namespace Client
 {
@@ -19,6 +20,30 @@ namespace Client
         private LogInWindow logInWindow;
         private UserServiceClient userService;
         private IMapper mapper;
+
+        private bool isErrorMessage = false;
+
+        public bool IsErrorMessage
+        {
+            get { return isErrorMessage; }
+            set
+            {
+                isErrorMessage = value;
+                OnPropertyChanged();
+            }
+        }
+        private string errorMessage ="Incorrect Login";
+
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set 
+            {
+                errorMessage = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         // Я (Коля) виніс цей об'єкт сюди для того щоб він завчасно не видалився. Воно працює - не лізь, будь ласка.
         // Цей об'єкт хоче жити. Не знищуй його
@@ -39,6 +64,7 @@ namespace Client
         public ICommand CancelCommand => cancelCommand;
         public ICommand RegisterCommand => registerCommand;
         public ICommand LoginCommand => loginCommand;
+
         public LogInViewModel()
         {
             openRegisterWindowCommand = new DelegateCommand(OpenRegisterWindow);
@@ -124,7 +150,15 @@ namespace Client
         {
             UserDTO user = await userService.GetUserByEmailOrNicknameAsync(userViewModel.NickName);
             if (user == null)
-                MessageBox.Show("Invalid login");
+            {
+                _ = Task.Run(() =>
+                  {
+                      ErrorMessage = "Incorrect Login";
+                      IsErrorMessage = true;
+                      Thread.Sleep(1500);
+                      IsErrorMessage = false;
+                  });
+            }
             else
             {
                 if (userService.IsRightPasswordInUser(user, userViewModel.Password))
@@ -132,6 +166,16 @@ namespace Client
                     mainWind = new MainWindow(mapper.Map<UserViewModel>(user));
                     CloseWindow();
                     mainWind.ShowDialog();
+                }
+                else
+                {
+                    _ = Task.Run(() =>
+                    {
+                        ErrorMessage = "Incorrect Login";
+                        IsErrorMessage = true;
+                        Thread.Sleep(1500);
+                        IsErrorMessage = false;
+                    });
                 }
             }
         }

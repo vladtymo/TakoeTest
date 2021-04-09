@@ -6,9 +6,33 @@
              xmlns:local="clr-namespace:Client"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="570">
+    <UserControl.Resources>
+        <Style x:Key="borderStyle" TargetType="Border">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Border.MouseDown">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" RepeatBehavior="5x">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.03" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.06" Value="4"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.09" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="-4"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Border Width="300" Height="200" Margin="10">
+            <Border Width="300" Height="200" Margin="10" Style="{DynamicResource borderStyle}">
+                <Border.RenderTransform>
+                    <TranslateTransform X="2" Y="0"></TranslateTransform>
+                </Border.RenderTransform>
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#00d1ff" Offset="0.0"></GradientStop>
@@ -20,10 +44,11 @@
                 </Border.Clip>
                 <Grid>
                     <StackPanel>
-                        <TextBlock Text="World leader&#x0a;in global testing" Foreground="White" FontSize="28" Margin="20,10,10,0"></TextBlock>
-                        <TextBlock Text="Get started today!" Foreground="White" Margin="20,10,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource World}" Foreground="White" FontSize="28" Margin="20,10,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource World2}" Foreground="White" FontSize="28" Margin="20,0,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource Get}" Foreground="White" Margin="20,10,10,0"></TextBlock>
                     </StackPanel>
-                    <Image Source="/Picture/man.png" Width="150" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-51,4">
+                    <Image Source="/Picture/man.png" Width="140" Height="140" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-51,4">
                         <Image.RenderTransform>
                             <RotateTransform Angle="15"></RotateTransform>
                         </Image.RenderTransform>
@@ -31,7 +56,10 @@
                 </Grid>
             </Border>
 
-            <Border Width="210" Height="200" CornerRadius="15" Margin="30,0,0,0">
+            <Border Width="210" Height="200" CornerRadius="15" Margin="30,0,0,0"  Style="{DynamicResource borderStyle}">
+                <Border.RenderTransform>
+                    <TranslateTransform X="-2" Y="0"></TranslateTransform>
+                </Border.RenderTransform>
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#ffe268" Offset="0.0"></GradientStop>
@@ -41,7 +69,8 @@
                 <Grid>
                     <StackPanel>
                         <TextBlock Text="Takoe_Team" Foreground="#3d6cb9" FontSize="28" Margin="20,10,10,0"></TextBlock>
-                        <TextBlock Text="Created by a team&#x0a;of professional programmers" Foreground="#3d6cb9" Margin="20,10,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource Team}" Foreground="#3d6cb9" Margin="20,0,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource Team2}" Foreground="#3d6cb9" Margin="20,0,10,0"></TextBlock>
                     </StackPanel>
                     <Image Source="/Picture/Team.png" Width="150" Height="150" VerticalAlignment="Bottom"/>
 
@@ -49,21 +78,33 @@
             </Border>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Border Width="150" Height="150" CornerRadius="15" Margin="19" Background="#ec5858">
+            <Border Width="150" Height="150" CornerRadius="15" Margin="19" Background="#ec5858"  Style="{DynamicResource borderStyle}">
+                <Border.RenderTransform>
+                    <TranslateTransform X="-2" Y="0"></TranslateTransform>
+                </Border.RenderTransform>
                 <Grid>
-                    <TextBlock Text="Start various&#x0a;tests" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Various}" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Various2}" FontSize="20" Foreground="White" Margin="10,30"></TextBlock>
                     <Image Source="/Picture/Start.png" Width="100" Height="100" Margin="50,40,0,10" />
                 </Grid>
             </Border>
-            <Border Width="150" Height="150" CornerRadius="15" Margin="19" Background="#9088d4">
+            <Border Width="150" Height="150" CornerRadius="15" Margin="19" Background="#9088d4"  Style="{DynamicResource borderStyle}">
+                <Border.RenderTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </Border.RenderTransform>
                 <Grid>
-                <TextBlock Text="Create your&#x0a;own tests" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Your}" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Your2}" FontSize="20" Foreground="White" Margin="10,30"></TextBlock>
                     <Image Source="/Picture/create.png" Width="100" Height="100" Margin="50,40,0,10"/>
                 </Grid>
             </Border>
-            <Border Width="150" Height="150" CornerRadius="15" Margin="19" Background="#bb2205">
+            <Border Width="150" Height="150" CornerRadius="15" Margin="19" Background="#bb2205"  Style="{DynamicResource borderStyle}">
+                <Border.RenderTransform>
+                    <TranslateTransform X="2" Y="0"></TranslateTransform>
+                </Border.RenderTransform>
                 <Grid>
-                <TextBlock Text="Develop your&#x0a;thinking" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Develop}" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Develop2}" FontSize="20" Foreground="White" Margin="10,30"></TextBlock>
                     <Image Source="/Picture/winner.png" Height="100"  Width="100" Margin="50,40,0,10"/>
 
                 </Grid>
