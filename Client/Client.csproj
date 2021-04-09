@@ -93,6 +93,7 @@
     <Compile Include="ViewModels\LastTestViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PassingTestViewModel.cs" />
+    <Compile Include="ViewModels\ShowTestIntroViewModel.cs" />
     <Compile Include="ViewModels\ShowTestViewModel.cs" />
     <Compile Include="ViewModels\TopPeopleTestViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
