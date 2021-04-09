@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ClassesViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -23,10 +24,10 @@ namespace Client
     public partial class PassingTestWindow : Window
     {
         PassingTestViewModel viewModel;
-        public PassingTestWindow(string testName)
+        public PassingTestWindow(TestViewModel model)
         {
             InitializeComponent();
-            viewModel = new PassingTestViewModel(testName);
+            viewModel = new PassingTestViewModel(model);
             this.DataContext = viewModel;
             list.ItemsSource = viewModel.Answers;
             viewModel.ClosingRequest += (sender, e) => this.Close();

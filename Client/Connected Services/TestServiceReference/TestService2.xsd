@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/WcfService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51881/Services/TestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="TestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:CategoryDTO" />
+      <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassageTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfQuestionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestDTO" nillable="true" type="tns:TestDTO" />
+  <xs:complexType name="CategoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tests" nillable="true" type="tns:ArrayOfTestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryDTO" nillable="true" type="tns:CategoryDTO" />
+  <xs:complexType name="ArrayOfTestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TestDTO" nillable="true" type="tns:TestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTestDTO" nillable="true" type="tns:ArrayOfTestDTO" />
+  <xs:complexType name="ArrayOfQuestionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionDTO" nillable="true" type="tns:ArrayOfQuestionDTO" />
+  <xs:complexType name="QuestionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfAnswerDTO" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Test" nillable="true" type="tns:TestDTO" />
+      <xs:element minOccurs="0" name="TestId" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
+  <xs:complexType name="ArrayOfAnswerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnswerDTO" nillable="true" type="tns:AnswerDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnswerDTO" nillable="true" type="tns:ArrayOfAnswerDTO" />
+  <xs:complexType name="AnswerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsRight" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Question" nillable="true" type="tns:QuestionDTO" />
+      <xs:element minOccurs="0" name="QuestionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnswerDTO" nillable="true" type="tns:AnswerDTO" />
+</xs:schema>

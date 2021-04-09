@@ -71,6 +71,10 @@
     <Compile Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.designer.cs">
       <DependentUpon>202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104091541384_EditReferences.cs" />
+    <Compile Include="Migrations\202104091541384_EditReferences.designer.cs">
+      <DependentUpon>202104091541384_EditReferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104071312384_AddCategoryTestQuestionAnswerResultEntties.resx">
       <DependentUpon>202104071312384_AddCategoryTestQuestionAnswerResultEntties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104091541384_EditReferences.resx">
+      <DependentUpon>202104091541384_EditReferences.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

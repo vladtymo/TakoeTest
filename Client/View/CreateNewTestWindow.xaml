@@ -35,11 +35,11 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name: " VerticalAlignment="Center" Margin="10,0" FontWeight="DemiBold" FontSize="30" Foreground="White"></TextBlock>
-                <TextBox Text="{Binding Name, Mode=OneWayToSource}" Height="30" Width="200" FontSize="20" Foreground="White"></TextBox>
+                <TextBox Text="{Binding TestName, Mode=OneWayToSource}" Height="30" Width="200" FontSize="20" Foreground="White"></TextBox>
             </StackPanel>
             <ScrollViewer HorizontalScrollBarVisibility="Visible" Margin="10" Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
-                    <ListBox x:Name="list"  ItemsSource="{Binding parts}" SelectedItem="{Binding SelectedPart, Mode=OneWayToSource}">
+                    <ListBox x:Name="list"  ItemsSource="{Binding questions}" SelectedItem="{Binding SelectedQuestion, Mode=OneWayToSource}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal"></StackPanel>
@@ -101,9 +101,9 @@
                     <materialDesign:PackIcon Kind="HeadQuestion" Width="40" Height="40" Foreground="#3d6cb9" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBlock Grid.Row="0" Grid.Column="1" Text="Question:" Foreground="#3d6cb9" FontSize="30" FontWeight="DemiBold" VerticalAlignment="Center"></TextBlock>
                     <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Padding="5" Foreground="#3d6cb9" FontSize="18" TextWrapping="Wrap"
-                             AcceptsReturn="True" Text="{Binding Question, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                             AcceptsReturn="True" Text="{Binding SelectedQuestionText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     <TextBlock Grid.Row="0" Grid.Column="2" Text="Price:" Foreground="#3d6cb9" FontSize="30" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <ComboBox Text="{Binding SelectePrice, Mode=TwoWay}" x:Name="cbName" Grid.Column="3" Margin="10,0" FontSize="20" Foreground="#3d6cb9"></ComboBox>
+                    <ComboBox Text="{Binding SelectedQuestionPrice, Mode=TwoWay}" x:Name="cbName" Grid.Column="3" Margin="10,0" FontSize="20" Foreground="#3d6cb9"></ComboBox>
                 </Grid>
                 <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1" Margin="5">
                     <StackPanel>

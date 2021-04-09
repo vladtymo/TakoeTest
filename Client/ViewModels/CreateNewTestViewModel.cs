@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using Client.ClassesViewModel;
+using Client.TestServiceReference;
+using Client.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,11 +15,15 @@ using System.Windows.Input;
 
 namespace Client
 {
-    public class CreateNewTestViewModel : INotifyPropertyChanged
+    public class CreateNewTestViewModel : ViewModelBase
     {
-        public ObservableCollection<PartOfTest> parts = new ObservableCollection<PartOfTest>();
-        public ObservableCollection<Answer> answers = new ObservableCollection<Answer>();
+        public ObservableCollection<QuestionViewModel> questions = new ObservableCollection<QuestionViewModel>();
+        public ObservableCollection<AnswerViewModel> answers = new ObservableCollection<AnswerViewModel>();
         public ObservableCollection<int> prices = new ObservableCollection<int>();
+
+        TestServiceClient testService;
+        TestViewModel testViewModel;
+        IMapper mapper;
 
         private RelayCommand removeCommand;
         public ICommand RemoveCommand => removeCommand;
@@ -31,6 +39,27 @@ namespace Client
 
         public CreateNewTestViewModel()
         {
+            testService = new TestServiceClient();
+            testViewModel = new TestViewModel();
+
+            IConfigurationProvider config = new MapperConfiguration(
+                cfg =>
+                {
+                    cfg.CreateMap<TestDTO, TestViewModel>();
+                    cfg.CreateMap<QuestionDTO, QuestionViewModel>()
+                        .ForMember(dst => dst.Price, opt => opt.MapFrom(src => src.Value))
+                        .ForMember(dst => dst.Question, opt => opt.MapFrom(src => src.Text));
+                    cfg.CreateMap<AnswerDTO, AnswerViewModel>();
+
+                    cfg.CreateMap<TestViewModel, TestDTO>();
+                    cfg.CreateMap<QuestionViewModel, QuestionDTO>()
+                        .ForMember(dst => dst.Value, opt => opt.MapFrom(src => src.Price))
+                        .ForMember(dst => dst.Text, opt => opt.MapFrom(src => src.Question));
+                    cfg.CreateMap<AnswerViewModel, AnswerDTO>();
+                });
+
+            mapper = new Mapper(config);
+
             for (int i = 0; i < 10; i++)
             {
                 prices.Add(i + 1);
@@ -42,15 +71,15 @@ namespace Client
                 {
 
                     answers.RemoveAt(index);
-                    selectedPart.Answers.Clear();
+                    selectedQuestion.Answers.Clear();
                     for (int i = 0; i < answers.Count; i++)
                     {
                         answers[i].Index = i;
-                        selectedPart.Answers.Add(answers[i]);
+                        selectedQuestion.Answers.Add(answers[i]);
                     }
                 }
             });
-            addPartCommand = new DelegateCommand(addPart);
+            addPartCommand = new DelegateCommand(AddQuestion);
             addAnswerCommand = new DelegateCommand(addAnswer);
             saveCommand = new DelegateCommand(save);
             cancelCommand = new DelegateCommand(cancel);
@@ -66,156 +95,92 @@ namespace Client
                 OnPropertyChanged();
             }
         }
-        private PartOfTest selectedPart;
+        private QuestionViewModel selectedQuestion;
 
-        public PartOfTest SelectedPart
+        public QuestionViewModel SelectedQuestion
         {
-            get { return selectedPart; }
+            get { return selectedQuestion; }
             set
             {
-                selectedPart = value;
+                selectedQuestion = value;
                 OnPropertyChanged();
-                Question = selectedPart.Question;
-                answers.Clear();
-                SelectePrice = selectedPart.Price;
-                foreach (var item in selectedPart.Answers)
+                if (selectedQuestion != null)
                 {
-                    answers.Add(item);
+                    SelectedQuestionText = selectedQuestion.Question;
+                    SelectedQuestionPrice = selectedQuestion.Price;
+
+                    answers.Clear();
+                    foreach (var item in selectedQuestion.Answers)
+                    {
+                        answers.Add(item);
+                    }
                 }
             }
         }
-        private string question;
 
-        public string Question
+        private string selectedQuestionText;
+        public string SelectedQuestionText
         {
-            get { return question; }
+            get { return selectedQuestionText; }
             set
             {
-                question = value;
+                selectedQuestionText = value;
                 OnPropertyChanged();
-                SelectedPart.Question = Question;
-            }
-        }
-        private int selectePrice;
-
-        public int SelectePrice
-        {
-            get { return selectePrice; }
-            set
-            {
-                selectePrice = value;
-                OnPropertyChanged();
-                SelectedPart.Price = selectePrice;
-            }
-        }
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                name = value;
-                OnPropertyChanged();
+                SelectedQuestion.Question = SelectedQuestionText;
             }
         }
 
-
-        public void addPart()
+        private string testName;
+        public string TestName
         {
-            parts.Add(new PartOfTest());
+            get => testName;
+            set
+            {
+                testName = value;
+                OnPropertyChanged();
+                testViewModel.Name = testName;
+            }
+        }
+
+        private int selectedQuestionPrice;
+        public int SelectedQuestionPrice
+        {
+            get { return selectedQuestionPrice; }
+            set
+            {
+                selectedQuestionPrice = value;
+                OnPropertyChanged();
+                SelectedQuestion.Price = selectedQuestionPrice;
+            }
+        }
+
+        public void AddQuestion()
+        {
+            questions.Add(new QuestionViewModel());
             Visibility = true;
         }
         public void addAnswer()
         {
-            answers.Add(new Answer() { Index = answers.Count });
-            selectedPart.Answers.Add(answers[answers.Count - 1]);
+            answers.Add(new AnswerViewModel() { Index = answers.Count });
+            selectedQuestion.Answers.Add(answers[answers.Count - 1]);
+        }
+        private void CloseWindow()
+        {
+            foreach (Window item in Application.Current.Windows)
+            {
+                if (item.DataContext == this) item.Close();
+            }
         }
         public void save()
         {
-            MessageBox.Show("Save new test");
+            testViewModel.Questions = questions;
+            TestDTO dto = mapper.Map<TestDTO>(testViewModel);
+            testService.AddTest(dto);
+            CloseWindow();
         }
         public void cancel()
         {
-            MessageBox.Show("Cancel");
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-    }
-    public class Answer : INotifyPropertyChanged
-    {
-        private int index = -1;
-        public int Index
-        {
-            get { return index; }
-            set
-            {
-                index = value;
-                OnPropertyChanged();
-            }
-        }
-        private string text;
-        public string Text
-        {
-            get { return text; }
-            set
-            {
-                text = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool isRight;
-
-        public bool IsRight
-        {
-            get { return isRight; }
-            set
-            {
-                isRight = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-    }
-    public class PartOfTest : INotifyPropertyChanged
-    {
-        public ObservableCollection<Answer> Answers = new ObservableCollection<Answer>();
-        private string question;
-        public string Question
-        {
-            get { return question; }
-            set
-            {
-                question = value;
-                OnPropertyChanged();
-            }
-        }
-        private int price;
-
-        public int Price
-        {
-            get { return price; }
-            set 
-            {
-               price = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            CloseWindow();
         }
     }
 }

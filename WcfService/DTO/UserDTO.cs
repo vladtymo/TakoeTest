@@ -7,6 +7,7 @@ using System.Web;
 namespace WcfService.DTO
 {
     [DataContract]
+    [Serializable]
     public class UserDTO
     {
         [DataMember]

@@ -20,6 +20,7 @@ namespace DataAccessLayer.Interfaces
             string includeProperties = "");
         void Update(TEntity entityToUpdate);
         void Insert(TEntity entity);
+        TEntity GetLast();
         void Delete(TEntity entityToDelete);
         void Delete(int id);
     }

@@ -59,6 +59,11 @@ namespace DataAccessLayer
             dbSet.Add(entity);
         }
 
+        public virtual TEntity GetLast()
+        {
+            return dbSet.ToList().Last();
+        }
+
         public virtual void Delete(int id)
         {
             TEntity entityToDelete = dbSet.Find(id);

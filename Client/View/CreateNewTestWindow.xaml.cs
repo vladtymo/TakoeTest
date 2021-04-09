@@ -27,7 +27,7 @@ namespace Client
         {
             InitializeComponent();
             this.DataContext = viewModel;
-            list.ItemsSource = viewModel.parts;
+            list.ItemsSource = viewModel.questions;
             listA.ItemsSource = viewModel.answers;
             cbName.ItemsSource = viewModel.prices;
         }

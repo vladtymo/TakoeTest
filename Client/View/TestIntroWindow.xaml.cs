@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AutoMapper;
+using Client.ClassesViewModel;
+using Client.TestServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,18 +23,48 @@ namespace Client
     /// </summary>
     public partial class TestIntroWindow : Window
     {
-        public TestIntroWindow()
+        TestServiceClient testService;
+        TestViewModel testModel;
+        IMapper mapper;
+        public TestIntroWindow(TestViewModel modelTest)
         {
             InitializeComponent();
-            SimpTest simpTest = new SimpTest() { CountQuestions = 10, LastPass = 7 };
-            this.DataContext = simpTest;
-            listTopPeopleTest.Items.Add(new UserTestResult() { AuthorName = "Koval Kolya", FullName = "Oleksandr Zhyhula", TimeResult = new TimeSpan(0, 15, 25), CountCurrentAnswers = 10, Mark = 10 });
-            listTopPeopleTest.Items.Add(new UserTestResult() { AuthorName = "Batka", FullName = "Oleksandr Chernij", TimeResult = new TimeSpan(0, 12, 20), CountCurrentAnswers = 9, Mark = 9 });
+            testService = new TestServiceClient();
+            this.testModel = modelTest;
+            this.DataContext = modelTest;
+
+            IConfigurationProvider config = new MapperConfiguration(
+                cfg =>
+                {
+                    cfg.CreateMap<TestDTO, TestViewModel>();
+                    cfg.CreateMap<QuestionDTO, QuestionViewModel>()
+                        .ForMember(dst => dst.Price, opt => opt.MapFrom(src => src.Value))
+                        .ForMember(dst => dst.Question, opt => opt.MapFrom(src => src.Text));
+                    cfg.CreateMap<AnswerDTO, AnswerViewModel>();
+
+                    cfg.CreateMap<TestViewModel, TestDTO>();
+                    cfg.CreateMap<QuestionViewModel, QuestionDTO>()
+                        .ForMember(dst => dst.Value, opt => opt.MapFrom(src => src.Price))
+                        .ForMember(dst => dst.Text, opt => opt.MapFrom(src => src.Question));
+                    cfg.CreateMap<AnswerViewModel, AnswerDTO>();
+                });
+
+            mapper = new Mapper(config);
+
+            ////НЕ КОСТИЛЬ. ОТВЕЧАЮ!!!
+            ////НЕ ЛІЗЬ, УБ'Є
+            //foreach (var question in testService.GetQuestionsByCurrTest(testModel.Id))
+            //{
+            //    question.Answers = testService.GetAnswersByCurrQuest(testModel.Id);
+            //    testModel.Questions.Append(mapper.Map<QuestionViewModel>(question));
+            //}
+
+            testModel = mapper.Map<TestViewModel>(testService.GetTestByNameWithQuestions(testModel.Name));
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Test Started");
+            PassingTestWindow window = new PassingTestWindow(testModel);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace DAL.Entities
         public int Gender { get; set; }
 
         //Navigation
-        public virtual IEnumerable<Result> Results { get; set; }
+        public virtual ICollection<Result> Results { get; set; }
 
         public User()
         {

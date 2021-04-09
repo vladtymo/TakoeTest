@@ -16,7 +16,7 @@ namespace DAL
         public int TestId { get; set; }
 
         //Navigation
-        public virtual IEnumerable<Answer> Answers { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
         public virtual Test Test { get; set; }
 
         public Question()

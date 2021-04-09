@@ -29,8 +29,12 @@ namespace WcfService
 		TestDTO GetTestByNameWithQuestions(string name);
 
 		[OperationContract]
-		IEnumerable<TestDTO> GetAllTests();
+		TestDTO[] GetAllTests();
 		[OperationContract]
 		IEnumerable<TestDTO> GetAllTestsInCategory(CategoryDTO category);
+		[OperationContract]
+		IEnumerable<QuestionDTO> GetQuestionsByCurrTest(int testId);
+		[OperationContract]
+		IEnumerable<AnswerDTO> GetAnswersByCurrQuest(int questId);
 	}
 }

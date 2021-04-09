@@ -95,7 +95,7 @@
                     <DataTemplate>
                         <Border Width="500" Background="#DDFBFA" Height="35" CornerRadius="10">
                             <Grid>
-                                <TextBlock Text="{Binding Name}" Foreground="#0278ae" Margin="20,0" FontSize="18" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{Binding Test.Name}" Foreground="#0278ae" Margin="20,0" FontSize="18" VerticalAlignment="Center"></TextBlock>
                                 <Button Command="{Binding StartTestCommand}" HorizontalAlignment="Right" Foreground="#DDFBFA" VerticalAlignment="Center" Margin="20,5">
                                     <Button.Template>
                                         <ControlTemplate>

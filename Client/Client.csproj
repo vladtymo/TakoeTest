@@ -80,6 +80,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassesViewModel\AnswerViewModel.cs" />
+    <Compile Include="ClassesViewModel\QuestionViewModel.cs" />
+    <Compile Include="ClassesViewModel\TestViewModel.cs" />
+    <Compile Include="Connected Services\TestServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\UserServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,7 +99,7 @@
     <Compile Include="ViewModels\PassingTestViewModel.cs" />
     <Compile Include="ViewModels\ShowTestViewModel.cs" />
     <Compile Include="ViewModels\TopPeopleTestViewModel.cs" />
-    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ClassesViewModel\UserViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -185,6 +193,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\TestServiceReference\Client.TestServiceReference.AnswerDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TestServiceReference\Client.TestServiceReference.QuestionDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TestServiceReference\Client.TestServiceReference.TestDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TestServiceReference\TestService.wsdl" />
+    <None Include="Connected Services\TestServiceReference\TestService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TestServiceReference\TestService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TestServiceReference\TestService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\UserServiceReference\Client.UserServiceReference.IsRightPasswordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -223,6 +250,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TestServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\UserServiceReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +274,21 @@
     <Resource Include="Picture\Start.png" />
     <Resource Include="Picture\Team.png" />
     <Resource Include="Picture\winner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestServiceReference\TestService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

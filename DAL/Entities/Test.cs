@@ -20,8 +20,8 @@ namespace DAL
 
         //Navigation prop
         public virtual Category Category { get; set; }
-        public virtual IEnumerable<Question> Questions { get; set; }
-        public virtual IEnumerable<Result> Results { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Result> Results { get; set; }
 
         public Test()
         {

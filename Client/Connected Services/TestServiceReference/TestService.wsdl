@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_policy">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TestService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -96,7 +96,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsExistNickname_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_AddTest_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -115,7 +115,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsExistNickname_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_AddTest_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -134,7 +134,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsExistEmail_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_IsTextNameExist_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -153,7 +153,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsExistEmail_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_IsTextNameExist_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -172,7 +172,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsRightPassword_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestById_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -191,7 +191,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsRightPassword_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestById_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -210,7 +210,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsRightPasswordInUser_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestByName_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -229,7 +229,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_IsRightPasswordInUser_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestByName_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -248,7 +248,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByNickAndPass_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestByIdWithQuestions_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -267,7 +267,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByNickAndPass_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestByIdWithQuestions_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -286,7 +286,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByNick_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestByNameWithQuestions_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -305,7 +305,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByNick_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetTestByNameWithQuestions_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -324,7 +324,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByEmail_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetAllTests_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -343,7 +343,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByEmail_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetAllTests_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -362,7 +362,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByEmailOrNickname_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetAllTestsInCategory_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -381,7 +381,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_GetUserByEmailOrNickname_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetAllTestsInCategory_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -400,7 +400,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_AddNewUser_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetQuestionsByCurrTest_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -419,7 +419,45 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IUserService_AddNewUser_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetQuestionsByCurrTest_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetAnswersByCurrQuest_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ITestService_GetAnswersByCurrQuest_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -440,211 +478,232 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:51881/Services/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:51881/Services/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:51881/Services/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService.DTO" />
+      <xsd:import schemaLocation="http://localhost:51881/Services/TestService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51881/Services/TestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51881/Services/TestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService.DTO" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IUserService_IsExistNickname_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsExistNickname" />
+  <wsdl:message name="ITestService_AddTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTest" />
   </wsdl:message>
-  <wsdl:message name="IUserService_IsExistNickname_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IsExistNicknameResponse" />
+  <wsdl:message name="ITestService_AddTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTestResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_IsExistEmail_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsExistEmail" />
+  <wsdl:message name="ITestService_IsTextNameExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsTextNameExist" />
   </wsdl:message>
-  <wsdl:message name="IUserService_IsExistEmail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IsExistEmailResponse" />
+  <wsdl:message name="ITestService_IsTextNameExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsTextNameExistResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_IsRightPassword_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsRightPassword" />
+  <wsdl:message name="ITestService_GetTestById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestById" />
   </wsdl:message>
-  <wsdl:message name="IUserService_IsRightPassword_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IsRightPasswordResponse" />
+  <wsdl:message name="ITestService_GetTestById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_IsRightPasswordInUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsRightPasswordInUser" />
+  <wsdl:message name="ITestService_GetTestByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestByName" />
   </wsdl:message>
-  <wsdl:message name="IUserService_IsRightPasswordInUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IsRightPasswordInUserResponse" />
+  <wsdl:message name="ITestService_GetTestByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestByNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByNickAndPass_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByNickAndPass" />
+  <wsdl:message name="ITestService_GetTestByIdWithQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestByIdWithQuestions" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByNickAndPass_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByNickAndPassResponse" />
+  <wsdl:message name="ITestService_GetTestByIdWithQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestByIdWithQuestionsResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByNick_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByNick" />
+  <wsdl:message name="ITestService_GetTestByNameWithQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestByNameWithQuestions" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByNick_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByNickResponse" />
+  <wsdl:message name="ITestService_GetTestByNameWithQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestByNameWithQuestionsResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByEmail_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByEmail" />
+  <wsdl:message name="ITestService_GetAllTests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTests" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByEmail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByEmailResponse" />
+  <wsdl:message name="ITestService_GetAllTests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTestsResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByEmailOrNickname_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByEmailOrNickname" />
+  <wsdl:message name="ITestService_GetAllTestsInCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTestsInCategory" />
   </wsdl:message>
-  <wsdl:message name="IUserService_GetUserByEmailOrNickname_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByEmailOrNicknameResponse" />
+  <wsdl:message name="ITestService_GetAllTestsInCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTestsInCategoryResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_AddNewUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddNewUser" />
+  <wsdl:message name="ITestService_GetQuestionsByCurrTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionsByCurrTest" />
   </wsdl:message>
-  <wsdl:message name="IUserService_AddNewUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddNewUserResponse" />
+  <wsdl:message name="ITestService_GetQuestionsByCurrTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionsByCurrTestResponse" />
   </wsdl:message>
-  <wsdl:portType name="IUserService">
-    <wsdl:operation name="IsExistNickname">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsExistNickname" message="tns:IUserService_IsExistNickname_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsExistNicknameResponse" message="tns:IUserService_IsExistNickname_OutputMessage" />
+  <wsdl:message name="ITestService_GetAnswersByCurrQuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswersByCurrQuest" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAnswersByCurrQuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswersByCurrQuestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITestService">
+    <wsdl:operation name="AddTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/AddTest" message="tns:ITestService_AddTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/AddTestResponse" message="tns:ITestService_AddTest_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="IsExistEmail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsExistEmail" message="tns:IUserService_IsExistEmail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsExistEmailResponse" message="tns:IUserService_IsExistEmail_OutputMessage" />
+    <wsdl:operation name="IsTextNameExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/IsTextNameExist" message="tns:ITestService_IsTextNameExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/IsTextNameExistResponse" message="tns:ITestService_IsTextNameExist_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="IsRightPassword">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsRightPassword" message="tns:IUserService_IsRightPassword_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsRightPasswordResponse" message="tns:IUserService_IsRightPassword_OutputMessage" />
+    <wsdl:operation name="GetTestById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetTestById" message="tns:ITestService_GetTestById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetTestByIdResponse" message="tns:ITestService_GetTestById_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="IsRightPasswordInUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsRightPasswordInUser" message="tns:IUserService_IsRightPasswordInUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsRightPasswordInUserResponse" message="tns:IUserService_IsRightPasswordInUser_OutputMessage" />
+    <wsdl:operation name="GetTestByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetTestByName" message="tns:ITestService_GetTestByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetTestByNameResponse" message="tns:ITestService_GetTestByName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetUserByNickAndPass">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByNickAndPass" message="tns:IUserService_GetUserByNickAndPass_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByNickAndPassResponse" message="tns:IUserService_GetUserByNickAndPass_OutputMessage" />
+    <wsdl:operation name="GetTestByIdWithQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetTestByIdWithQuestions" message="tns:ITestService_GetTestByIdWithQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetTestByIdWithQuestionsResponse" message="tns:ITestService_GetTestByIdWithQuestions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetUserByNick">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByNick" message="tns:IUserService_GetUserByNick_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByNickResponse" message="tns:IUserService_GetUserByNick_OutputMessage" />
+    <wsdl:operation name="GetTestByNameWithQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetTestByNameWithQuestions" message="tns:ITestService_GetTestByNameWithQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetTestByNameWithQuestionsResponse" message="tns:ITestService_GetTestByNameWithQuestions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetUserByEmail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByEmail" message="tns:IUserService_GetUserByEmail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailResponse" message="tns:IUserService_GetUserByEmail_OutputMessage" />
+    <wsdl:operation name="GetAllTests">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAllTests" message="tns:ITestService_GetAllTests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAllTestsResponse" message="tns:ITestService_GetAllTests_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetUserByEmailOrNickname">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailOrNickname" message="tns:IUserService_GetUserByEmailOrNickname_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailOrNicknameResponse" message="tns:IUserService_GetUserByEmailOrNickname_OutputMessage" />
+    <wsdl:operation name="GetAllTestsInCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAllTestsInCategory" message="tns:ITestService_GetAllTestsInCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAllTestsInCategoryResponse" message="tns:ITestService_GetAllTestsInCategory_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddNewUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddNewUser" message="tns:IUserService_AddNewUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddNewUserResponse" message="tns:IUserService_AddNewUser_OutputMessage" />
+    <wsdl:operation name="GetQuestionsByCurrTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetQuestionsByCurrTest" message="tns:ITestService_GetQuestionsByCurrTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetQuestionsByCurrTestResponse" message="tns:ITestService_GetQuestionsByCurrTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswersByCurrQuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAnswersByCurrQuest" message="tns:ITestService_GetAnswersByCurrQuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAnswersByCurrQuestResponse" message="tns:ITestService_GetAnswersByCurrQuest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="WSHttpBinding_IUserService" type="tns:IUserService">
-    <wsp:PolicyReference URI="#WSHttpBinding_IUserService_policy" />
+  <wsdl:binding name="WSHttpBinding_ITestService" type="tns:ITestService">
+    <wsp:PolicyReference URI="#WSHttpBinding_ITestService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="IsExistNickname">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/IsExistNickname" style="document" />
+    <wsdl:operation name="AddTest">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/AddTest" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsExistNickname_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_AddTest_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsExistNickname_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_AddTest_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsExistEmail">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/IsExistEmail" style="document" />
+    <wsdl:operation name="IsTextNameExist">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/IsTextNameExist" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsExistEmail_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_IsTextNameExist_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsExistEmail_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_IsTextNameExist_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsRightPassword">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/IsRightPassword" style="document" />
+    <wsdl:operation name="GetTestById">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetTestById" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsRightPassword_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestById_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsRightPassword_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestById_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsRightPasswordInUser">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/IsRightPasswordInUser" style="document" />
+    <wsdl:operation name="GetTestByName">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetTestByName" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsRightPasswordInUser_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestByName_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_IsRightPasswordInUser_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestByName_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUserByNickAndPass">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/GetUserByNickAndPass" style="document" />
+    <wsdl:operation name="GetTestByIdWithQuestions">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetTestByIdWithQuestions" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByNickAndPass_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestByIdWithQuestions_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByNickAndPass_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestByIdWithQuestions_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUserByNick">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/GetUserByNick" style="document" />
+    <wsdl:operation name="GetTestByNameWithQuestions">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetTestByNameWithQuestions" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByNick_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestByNameWithQuestions_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByNick_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetTestByNameWithQuestions_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUserByEmail">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/GetUserByEmail" style="document" />
+    <wsdl:operation name="GetAllTests">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetAllTests" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByEmail_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetAllTests_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByEmail_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetAllTests_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUserByEmailOrNickname">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/GetUserByEmailOrNickname" style="document" />
+    <wsdl:operation name="GetAllTestsInCategory">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetAllTestsInCategory" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByEmailOrNickname_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetAllTestsInCategory_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_GetUserByEmailOrNickname_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetAllTestsInCategory_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddNewUser">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/AddNewUser" style="document" />
+    <wsdl:operation name="GetQuestionsByCurrTest">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetQuestionsByCurrTest" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_AddNewUser_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetQuestionsByCurrTest_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IUserService_AddNewUser_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetQuestionsByCurrTest_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswersByCurrQuest">
+      <soap12:operation soapAction="http://tempuri.org/ITestService/GetAnswersByCurrQuest" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetAnswersByCurrQuest_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ITestService_GetAnswersByCurrQuest_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="UserService">
-    <wsdl:port name="WSHttpBinding_IUserService" binding="tns:WSHttpBinding_IUserService">
-      <soap12:address location="http://localhost:51881/Services/UserService.svc" />
+  <wsdl:service name="TestService">
+    <wsdl:port name="WSHttpBinding_ITestService" binding="tns:WSHttpBinding_ITestService">
+      <soap12:address location="http://localhost:51881/Services/TestService.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:51881/Services/UserService.svc</wsa10:Address>
+        <wsa10:Address>http://localhost:51881/Services/TestService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>

@@ -23,10 +23,10 @@ namespace Client
         //private DelegateCommand startCommand;
         //public ICommand StartCommand => startCommand;
 
-        //public void Start()
-        //{
-        //    MessageBox.Show("Start test");
-        //}
+        public void Start()
+        {
+            MessageBox.Show("Start test");
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)

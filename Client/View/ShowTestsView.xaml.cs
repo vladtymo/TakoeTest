@@ -29,6 +29,5 @@ namespace Client
             this.DataContext = viewModel;
             list.ItemsSource = viewModel.Tests;
         }
-
     }
 }

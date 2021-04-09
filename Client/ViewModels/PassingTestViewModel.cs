@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ClassesViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -82,7 +83,7 @@ namespace Client
         DelegateCommand exitCommand;
         public ICommand ExitCommand => exitCommand;
 
-        public PassingTestViewModel(string testName)
+        public PassingTestViewModel(TestViewModel model)
         {
             //
             Questions = new List<Question>()
