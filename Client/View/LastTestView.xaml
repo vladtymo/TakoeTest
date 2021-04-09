@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Client.LastTestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="570">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="170"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Foreground="#3d6cb9" Content ="Test name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="40" FontWeight="Bold"></Label>
+        <Label Grid.Row="1" Grid.Column="0" Content ="Test mark" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="26" FontWeight="Bold"></Label>
+        <Label Grid.Row="1" Grid.Column="1" Content ="7" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content ="True answers" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="2" Grid.Column="1" Content ="Wrong answers" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="3" Grid.Column="0" Content ="7" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="3" Grid.Column="1" Content ="3" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="4" Grid.Column="0" Content ="Student" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="4" Grid.Column="1" Content ="You" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="5" Grid.Column="0" Content ="Test Author" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+        <Label Grid.Row="5" Grid.Column="1" Content ="Someone" Foreground="#3d6cb9" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></Label>
+    </Grid>
+</UserControl>

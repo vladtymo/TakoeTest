@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Client
@@ -20,9 +20,27 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        UserViewModel userModel;
+        public MainWindow(UserViewModel model)
+        {
+            InitializeComponent();
+            userModel = model;
+        }
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseMenu.Visibility = Visibility.Visible;
+            btnOpenMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseMenu.Visibility = Visibility.Collapsed;
+            btnOpenMenu.Visibility = Visibility.Visible;
         }
     }
 }
