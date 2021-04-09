@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local = "clr-namespace:TakoeTest.Resource"
+                    xmlns:system = "clr-namespace:System;assembly=mscorlib" >
+    <system:String x:Key = "Main" >Додому</system:String >
+    <system:String x:Key = "Last" >Останній тест</system:String >
+    <system:String x:Key = "Create" >Створити тест</system:String >
+    <system:String x:Key = "Start" >Стартувати тест</system:String >
+    <system:String x:Key = "Edit" >Змінити тест</system:String >
+    <system:String x:Key = "World" >Світовий лідер</system:String >
+    <system:String x:Key = "World2" >у тестуванні</system:String >
+    <system:String x:Key = "Get" >Почніть сьогодні!</system:String >
+    <system:String x:Key = "Team" >Створено командою</system:String >
+    <system:String x:Key = "Team2" >професійних програмістів</system:String >
+    <system:String x:Key = "Various" >Стартуй різні</system:String >
+    <system:String x:Key = "Various2" >тести</system:String >
+    <system:String x:Key = "Your" >Створи свій</system:String >
+    <system:String x:Key = "Your2" >власний тест</system:String >
+    <system:String x:Key = "Develop" >Розвивай</system:String >
+    <system:String x:Key = "Develop2" >мислення</system:String >
+</ResourceDictionary>

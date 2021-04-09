@@ -44,10 +44,11 @@
                 </Border.Clip>
                 <Grid>
                     <StackPanel>
-                        <TextBlock Text="World leader&#x0a;in global testing" Foreground="White" FontSize="28" Margin="20,10,10,0"></TextBlock>
-                        <TextBlock Text="Get started today!" Foreground="White" Margin="20,10,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource World}" Foreground="White" FontSize="28" Margin="20,10,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource World2}" Foreground="White" FontSize="28" Margin="20,0,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource Get}" Foreground="White" Margin="20,10,10,0"></TextBlock>
                     </StackPanel>
-                    <Image Source="/Picture/man.png" Width="150" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-51,4">
+                    <Image Source="/Picture/man.png" Width="140" Height="140" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-51,4">
                         <Image.RenderTransform>
                             <RotateTransform Angle="15"></RotateTransform>
                         </Image.RenderTransform>
@@ -68,7 +69,8 @@
                 <Grid>
                     <StackPanel>
                         <TextBlock Text="Takoe_Team" Foreground="#3d6cb9" FontSize="28" Margin="20,10,10,0"></TextBlock>
-                        <TextBlock Text="Created by a team&#x0a;of professional programmers" Foreground="#3d6cb9" Margin="20,10,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource Team}" Foreground="#3d6cb9" Margin="20,0,10,0"></TextBlock>
+                        <TextBlock Text="{DynamicResource Team2}" Foreground="#3d6cb9" Margin="20,0,10,0"></TextBlock>
                     </StackPanel>
                     <Image Source="/Picture/Team.png" Width="150" Height="150" VerticalAlignment="Bottom"/>
 
@@ -81,7 +83,8 @@
                     <TranslateTransform X="-2" Y="0"></TranslateTransform>
                 </Border.RenderTransform>
                 <Grid>
-                    <TextBlock Text="Start various&#x0a;tests" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Various}" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Various2}" FontSize="20" Foreground="White" Margin="10,30"></TextBlock>
                     <Image Source="/Picture/Start.png" Width="100" Height="100" Margin="50,40,0,10" />
                 </Grid>
             </Border>
@@ -90,7 +93,8 @@
                     <TranslateTransform X="0" Y="0"></TranslateTransform>
                 </Border.RenderTransform>
                 <Grid>
-                    <TextBlock Text="Create your&#x0a;own tests" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Your}" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Your2}" FontSize="20" Foreground="White" Margin="10,30"></TextBlock>
                     <Image Source="/Picture/create.png" Width="100" Height="100" Margin="50,40,0,10"/>
                 </Grid>
             </Border>
@@ -99,7 +103,8 @@
                     <TranslateTransform X="2" Y="0"></TranslateTransform>
                 </Border.RenderTransform>
                 <Grid>
-                    <TextBlock Text="Develop your&#x0a;thinking" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Develop}" FontSize="20" Foreground="White" Margin="10"></TextBlock>
+                    <TextBlock Text="{DynamicResource Develop2}" FontSize="20" Foreground="White" Margin="10,30"></TextBlock>
                     <Image Source="/Picture/winner.png" Height="100"  Width="100" Margin="50,40,0,10"/>
 
                 </Grid>

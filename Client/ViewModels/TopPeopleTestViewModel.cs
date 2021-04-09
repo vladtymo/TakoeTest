@@ -17,7 +17,7 @@ namespace Client
 
         //public Test()
         //{
-        //    StartCommand = new DelegateCommand(startCommand);
+        //    startCommand = new DelegateCommand(Start);
         //}
 
         //private DelegateCommand startCommand;
