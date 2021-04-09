@@ -21,12 +21,23 @@ namespace Client
         private UserServiceClient userService;
         private IMapper mapper;
 
-        private bool errorMessage = false;
+        private bool isErrorMessage = false;
 
-        public bool ErrorMessage
+        public bool IsErrorMessage
+        {
+            get { return isErrorMessage; }
+            set
+            {
+                isErrorMessage = value;
+                OnPropertyChanged();
+            }
+        }
+        private string errorMessage ="Incorrect Login";
+
+        public string ErrorMessage
         {
             get { return errorMessage; }
-            set
+            set 
             {
                 errorMessage = value;
                 OnPropertyChanged();
@@ -137,20 +148,15 @@ namespace Client
         }
         public async void Login()
         {
-            //_ = Task.Run(() =>
-            //  {
-            //      ErrorMessage = true;
-            //      Thread.Sleep(1500);
-            //      ErrorMessage = false;
-            //  });
             UserDTO user = await userService.GetUserByEmailOrNicknameAsync(userViewModel.NickName);
             if (user == null)
             {
                 _ = Task.Run(() =>
                   {
-                      ErrorMessage = true;
+                      ErrorMessage = "Incorrect Login";
+                      IsErrorMessage = true;
                       Thread.Sleep(1500);
-                      ErrorMessage = false;
+                      IsErrorMessage = false;
                   });
             }
             else
@@ -160,6 +166,16 @@ namespace Client
                     mainWind = new MainWindow(mapper.Map<UserViewModel>(user));
                     CloseWindow();
                     mainWind.ShowDialog();
+                }
+                else
+                {
+                    _ = Task.Run(() =>
+                    {
+                        ErrorMessage = "Incorrect Login";
+                        IsErrorMessage = true;
+                        Thread.Sleep(1500);
+                        IsErrorMessage = false;
+                    });
                 }
             }
         }

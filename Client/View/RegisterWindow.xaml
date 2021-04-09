@@ -27,7 +27,21 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Border>
-        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Width="150" Height="150" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Width="150" Height="150" VerticalAlignment="Top" Margin="0,20,0,0">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="6" Color="White" Opacity="0.6" Direction="270"></DropShadowEffect>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
         <Rectangle Width="700" Height="500" Fill="White">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#184d47" Direction="0" BlurRadius="10" RenderingBias="Quality"></DropShadowEffect>

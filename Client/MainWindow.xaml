@@ -105,7 +105,21 @@
                                 Foreground="#00d1ff" Click="btnCloseMenu_Click">
                             <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
                         </Button>
-                        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Height="80" VerticalAlignment="Bottom"/>
+                        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Height="80" VerticalAlignment="Bottom">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect BlurRadius="6" Color="White" Opacity="0.3"></DropShadowEffect>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </Grid>
                     <Button Height="60" Style="{DynamicResource btnMenuStyle}" Command="{Binding HomeViewCommand}">
                         <Button.Template>

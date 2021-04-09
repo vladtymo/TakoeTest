@@ -53,7 +53,7 @@ namespace Client
             addPartCommand = new DelegateCommand(addPart);
             addAnswerCommand = new DelegateCommand(addAnswer);
             saveCommand = new DelegateCommand(save);
-            cancelCommand = new DelegateCommand(cancel);
+            cancelCommand = new DelegateCommand(OnClosingRequest);
         }
 
         private bool visibility = false;
@@ -135,9 +135,14 @@ namespace Client
         {
             MessageBox.Show("Save new test");
         }
-        public void cancel()
+        public event EventHandler ClosingRequest;
+
+        protected void OnClosingRequest()
         {
-            MessageBox.Show("Cancel");
+            if (this.ClosingRequest != null)
+            {
+                this.ClosingRequest(this, EventArgs.Empty);
+            }
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)

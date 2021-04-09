@@ -30,6 +30,7 @@ namespace Client
             list.ItemsSource = viewModel.parts;
             listA.ItemsSource = viewModel.answers;
             cbName.ItemsSource = viewModel.prices;
+            viewModel.ClosingRequest += (sender, e) => this.Close();
         }
     }
 }

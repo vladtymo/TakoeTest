@@ -23,7 +23,7 @@ namespace Client
         public ShowResultView()
         {
             InitializeComponent();
-            this.Background = new SolidColorBrush(Color.FromArgb(100, 77, 234, 229));
+            this.Background = new SolidColorBrush(Color.FromArgb(150, 77, 234, 229));
         }
     }
 }

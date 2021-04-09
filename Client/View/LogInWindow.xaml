@@ -50,7 +50,21 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Border>
-        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Width="150" Height="150" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <Image Source="/Picture/TakoeTestLogo2WhiteStyleT.png" Width="150" Height="150" VerticalAlignment="Top" Margin="0,20,0,0">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="6" Color="White" Opacity="0.6" Direction="270"></DropShadowEffect>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
         <Rectangle Width="400" Height="200" Fill="White">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#184d47" Direction="0" BlurRadius="10" RenderingBias="Quality"></DropShadowEffect>
@@ -76,15 +90,38 @@
                          Padding="10" Foreground="#3d6cb9" Margin="0,0,60,90" PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
             </DockPanel>
         </Grid>
-        <Button x:Name="btnRegister" Command="{Binding OpenRegisterWindowCommand}" VerticalAlignment="Bottom" Margin="0,0,0,70" Width="150" Height="40" HorizontalAlignment="Center"
-                Content="Register" FontSize="24" Background="#3d6cb9" Foreground="White"></Button>
-        <Button Command="{Binding LoginCommand}" VerticalAlignment="Bottom" Margin="0,0,0,115" Width="150" Height="40" HorizontalAlignment="Center"
-                Content="Login" FontSize="24" Background="#00d1ff"></Button>
+        <Button x:Name="btnRegister" Command="{Binding OpenRegisterWindowCommand}" VerticalAlignment="Bottom" Margin="0,0,0,70" Width="150" Height="40" HorizontalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border Background="#3d6cb9" CornerRadius="5">
+                        <TextBlock Foreground="White" Text="Register" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="4" ShadowDepth="1.2" Direction="270" Opacity="0.6" Color="White"></DropShadowEffect>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Command="{Binding LoginCommand}" VerticalAlignment="Bottom" Margin="0,0,0,115" Width="150" Height="40" HorizontalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border Background="#00d1ff" CornerRadius="5">
+                        <TextBlock Foreground="White" Text="Login" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="4" ShadowDepth="1.2" Direction="270" Opacity="0.6" Color="White"></DropShadowEffect>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
         <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="20" VerticalAlignment="Bottom"></TextBlock>
+        
         <Label Content="X" FontSize="18" FontWeight="UltraBold" Margin="0,5,5,0" HorizontalAlignment="Right" Height="26" VerticalAlignment="Top"
                    Cursor="Hand" Style="{StaticResource labelStyle}" MouseUp="Label_MouseUp"></Label>
 
-        <TextBlock IsEnabled="{Binding ErrorMessage}" Visibility="{Binding ErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}" Text="Incorrect Login or Password" Foreground="#f51c0c" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold">
+        <TextBlock IsEnabled="{Binding IsErrorMessage}" Visibility="{Binding IsErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding ErrorMessage}" Foreground="#f51c0c" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold">
             <TextBlock.Style>
                 <Style>
                     <Style.Triggers>
