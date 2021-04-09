@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,17 +16,14 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for ShowTestsView.xaml
+    /// Interaction logic for ShowResultView.xaml
     /// </summary>
-    public partial class ShowTestsView : UserControl
+    public partial class ShowResultView : UserControl
     {
-        ShowTestViewModel viewModel = new ShowTestViewModel();
-        public ShowTestsView()
+        public ShowResultView()
         {
             InitializeComponent();
-            this.DataContext = viewModel;
-            list.ItemsSource = viewModel.Tests;
+            this.Background = new SolidColorBrush(Color.FromArgb(100, 77, 234, 229));
         }
-
     }
 }

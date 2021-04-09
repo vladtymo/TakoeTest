@@ -24,6 +24,10 @@
                 <local:ShowTestsView></local:ShowTestsView>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type local:ShowResultViewModel}">
+                <local:ShowResultView></local:ShowResultView>
+            </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

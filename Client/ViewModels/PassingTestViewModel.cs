@@ -23,6 +23,8 @@ namespace Client
         public ObservableCollection<_Answer> Answers = new ObservableCollection<_Answer>();
         private string selecteQuestion;
 
+        public ShowResultViewModel showResultVM;
+
         public string SelecteQuestion
         {
             get { return selecteQuestion; }
@@ -76,6 +78,16 @@ namespace Client
             }
         }
         public int RightAnswers { get; set; }
+        private object resultView;
+        public object ResultView
+        {
+            get { return resultView; }
+            set
+            {
+                resultView = value;
+                OnPropertyChanged();
+            }
+        }
 
         DelegateCommand nextCommand;
         public ICommand NextCommand => nextCommand;
@@ -144,8 +156,11 @@ namespace Client
                 end = DateTime.Now;
                 time = end - start;
                 //....
-                MessageBox.Show($"Right answers: {RightAnswers} Mark: {Mark} Time: {time}");
-                OnClosingRequest();
+                //MessageBox.Show($"Right answers: {RightAnswers} Mark: {Mark} Time: {time}");
+                showResultVM = new ShowResultViewModel(Mark, RightAnswers, time, OnClosingRequest);
+                ResultView = showResultVM;
+                
+                //OnClosingRequest();
             }
         }
         private void CountRightAnswer()

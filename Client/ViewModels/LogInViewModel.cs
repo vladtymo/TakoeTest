@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Client.UserServiceReference;
+using System.Threading;
 
 namespace Client
 {
@@ -19,6 +20,19 @@ namespace Client
         private LogInWindow logInWindow;
         private UserServiceClient userService;
         private IMapper mapper;
+
+        private bool errorMessage = false;
+
+        public bool ErrorMessage
+        {
+            get { return errorMessage; }
+            set
+            {
+                errorMessage = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         // Я (Коля) виніс цей об'єкт сюди для того щоб він завчасно не видалився. Воно працює - не лізь, будь ласка.
         // Цей об'єкт хоче жити. Не знищуй його
@@ -39,6 +53,7 @@ namespace Client
         public ICommand CancelCommand => cancelCommand;
         public ICommand RegisterCommand => registerCommand;
         public ICommand LoginCommand => loginCommand;
+
         public LogInViewModel()
         {
             openRegisterWindowCommand = new DelegateCommand(OpenRegisterWindow);
@@ -122,9 +137,22 @@ namespace Client
         }
         public async void Login()
         {
+            //_ = Task.Run(() =>
+            //  {
+            //      ErrorMessage = true;
+            //      Thread.Sleep(1500);
+            //      ErrorMessage = false;
+            //  });
             UserDTO user = await userService.GetUserByEmailOrNicknameAsync(userViewModel.NickName);
             if (user == null)
-                MessageBox.Show("Invalid login");
+            {
+                _ = Task.Run(() =>
+                  {
+                      ErrorMessage = true;
+                      Thread.Sleep(1500);
+                      ErrorMessage = false;
+                  });
+            }
             else
             {
                 if (userService.IsRightPasswordInUser(user, userViewModel.Password))

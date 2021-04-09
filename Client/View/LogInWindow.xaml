@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="Login" Height="470" Width="500"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" d:DataContext="{d:DesignInstance Type=local:LogInViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -14,8 +14,21 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize" WindowStyle="None"
-        AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+        AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" Left="700">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.MouseDown">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard TargetProperty="Left">
+                        <DoubleAnimation From="700" To="715" Duration="0:0:0.05" AutoReverse="True" RepeatBehavior="3x" FillBehavior="Stop"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
         <Style x:Key="labelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="White"></Setter>
             <Style.Triggers>
@@ -70,5 +83,24 @@
         <TextBlock Foreground="White" FontSize="20" FontWeight="Bold" Text="By Takoe_Team" Margin="20" VerticalAlignment="Bottom"></TextBlock>
         <Label Content="X" FontSize="18" FontWeight="UltraBold" Margin="0,5,5,0" HorizontalAlignment="Right" Height="26" VerticalAlignment="Top"
                    Cursor="Hand" Style="{StaticResource labelStyle}" MouseUp="Label_MouseUp"></Label>
+
+        <TextBlock IsEnabled="{Binding ErrorMessage}" Visibility="{Binding ErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}" Text="Incorrect Login or Password" Foreground="#f51c0c" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold">
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <Trigger Property="TextBlock.IsEnabled" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation From="30" To="20" Duration="0:0:1" Storyboard.TargetProperty="FontSize"></DoubleAnimation>
+                                        <ThicknessAnimation Duration="0:0:1" From="0,0,0,0" To="0,0,0,440" Storyboard.TargetProperty="Margin"></ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
     </Grid>
 </Window>

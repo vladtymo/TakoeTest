@@ -85,6 +85,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ShowResultView.xaml.cs">
+      <DependentUpon>ShowResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowResultViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LastTestViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -111,6 +115,10 @@
     <Compile Include="View\TestIntroWindow.xaml.cs">
       <DependentUpon>TestIntroWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ShowResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreateNewTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
