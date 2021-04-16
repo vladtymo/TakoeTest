@@ -29,7 +29,7 @@ namespace WcfService
 		TestDTO GetTestByNameWithQuestions(string name);
 
 		[OperationContract]
-		TestDTO[] GetAllTests();
+		IEnumerable<TestDTO> GetAllTests();
 		[OperationContract]
 		IEnumerable<TestDTO> GetAllTestsInCategory(CategoryDTO category);
 		[OperationContract]

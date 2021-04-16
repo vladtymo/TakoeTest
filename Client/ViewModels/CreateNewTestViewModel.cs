@@ -82,7 +82,7 @@ namespace Client
             addPartCommand = new DelegateCommand(AddQuestion);
             addAnswerCommand = new DelegateCommand(addAnswer);
             saveCommand = new DelegateCommand(save);
-            cancelCommand = new DelegateCommand(OnClosingRequest);
+            //cancelCommand = new DelegateCommand(/*OnClosingRequest*/);
         }
 
         private bool visibility = false;

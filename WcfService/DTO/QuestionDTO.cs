@@ -7,7 +7,6 @@ using System.Web;
 namespace WcfService.DTO
 {
     [DataContract]
-    [Serializable]
     public class QuestionDTO
     {
         [DataMember]
@@ -21,9 +20,9 @@ namespace WcfService.DTO
         public int TestId { get; set; }
 
         [DataMember]
-        public AnswerDTO[] Answers { get; set; }
+        public ICollection<AnswerDTO> Answers { get; set; }
 
-        [DataMember]
-        public TestDTO Test { get; set; }
+        //[DataMember]
+        //public TestDTO Test { get; set; }
     }
 }

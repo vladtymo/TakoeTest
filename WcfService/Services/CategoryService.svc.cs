@@ -52,9 +52,9 @@ namespace WcfService.Services
 
         public void AddTestToCategory(CategoryDTO category, TestDTO testToAdd)
         {
-            category.Tests.Append(testToAdd);
-            unit.CategoryRepos.Update(mapper.Map<Category>(category));
-            unit.Save();
+            //category.Tests.Append(testToAdd);
+            //unit.CategoryRepos.Update(mapper.Map<Category>(category));
+            //unit.Save();
         }
 
         public IEnumerable<CategoryDTO> GetAllCategories() => mapper.Map<IEnumerable<CategoryDTO>>(unit.CategoryRepos.Get());

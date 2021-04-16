@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Input;
 using Client.UserServiceReference;
 using System.Threading;
+using Client.TestServiceReference;
 
 namespace Client
 {
@@ -67,6 +68,9 @@ namespace Client
 
         public LogInViewModel()
         {
+            TestServiceClient tmp1 = new TestServiceClient();
+            var tmp = tmp1.GetAllTests();
+
             openRegisterWindowCommand = new DelegateCommand(OpenRegisterWindow);
             cancelCommand = new DelegateCommand(Cancel);
             loginCommand = new DelegateCommand(Login);
